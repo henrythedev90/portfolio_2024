@@ -3,3 +3,72 @@
   align-items: center;
   justify-content: space-between;
 }
+.logo h1 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.logo h1 span {
+  cursor: pointer;
+}
+.mobile_logo {
+  display: none;
+}
+.nav_menu {
+  display: flex;
+  align-items: center;
+  column-gap: 2.8rem;
+}
+.nav_menu a {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.nav_menu a:hover {
+  color: #a01e77;
+}
+.header {
+  width: 100%;
+  height: 84px;
+  line-height: 80px;
+}
+
+@media (max-width: 992px) {
+  .logo h1 {
+    font-size: 1.3rem !important;
+  }
+  .mobileLogo {
+    display: contents;
+    margin-bottom: 30px;
+  }
+  .mobileLogo h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  .mobileLogo h1 span {
+    cursor: pointer;
+  }
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #171f3897;
+    z-index: 99999;
+    display: none;
+  }
+  .nav_menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
