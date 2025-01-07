@@ -35,6 +35,14 @@
   height: 84px;
   line-height: 80px;
 }
+.mobile_menu i {
+  font-size: 1.3rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+.mobile_menu {
+  display: none;
+}
 
 @media (max-width: 992px) {
   .logo h1 {
@@ -70,5 +78,18 @@
     height: 100%;
     flex-direction: column;
     justify-content: center;
+  }
+  .mobile_menu {
+    display: block !important;
+  }
+  .menu_active {
+    display: block !important;
+  }
+  .menu_line {
+    width: 30px; /* Width of the hamburger lines */
+    height: 3px; /* Height of each line */
+    background-color: #ffffff; /* Color of the lines */
+    margin: 5px 0; /* Space between lines */
+    transition: 0.3s; /* Smooth transition for animations */
   }
 }
