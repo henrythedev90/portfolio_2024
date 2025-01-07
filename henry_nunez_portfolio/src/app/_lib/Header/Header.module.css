@@ -86,10 +86,19 @@
     display: block !important;
   }
   .menu_line {
-    width: 30px; /* Width of the hamburger lines */
-    height: 3px; /* Height of each line */
-    background-color: #ffffff; /* Color of the lines */
-    margin: 5px 0; /* Space between lines */
-    transition: 0.3s; /* Smooth transition for animations */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu_line::before,
+  .menu_line::after,
+  .menu_line div {
+    content: "";
+    width: 30px; /* Adjust width as needed */
+    height: 4px; /* Adjust height as needed */
+    background-color: white; /* Change color as needed */
+    margin: 4px 0; /* Space between lines */
+    transition: all 1s ease; /* Smooth transition */
   }
 }
