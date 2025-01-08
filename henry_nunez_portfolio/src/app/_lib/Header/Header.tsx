@@ -5,7 +5,13 @@ import classes from "./Header.module.css";
 import Link from "next/link";
 import { NAV_LINK } from "../../../../Components/data/navLinks";
 
-const Header = () => {
+type HeaderProps = {
+  theme: string;
+  setTheme: (theme: string) => void;
+  availableThemes: string[];
+};
+
+const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
   {
     /**useRef is null at start, you need to check node's existence before using it.*/
   }
@@ -47,6 +53,14 @@ const Header = () => {
                 <span>H</span>enry
               </h1>
             </Link>
+          </div>
+          {/** this is where to toggle for theme buttons*/}
+          <div>
+            {availableThemes.map((t) => {
+              <button ket={t} onClick={() => setTheme(t)}>
+                {t.charAt(0).toUpperCase() + t.slice(1)}
+              </button>;
+            })}
           </div>
           {/** the navigation menu will go here */}
           <div
