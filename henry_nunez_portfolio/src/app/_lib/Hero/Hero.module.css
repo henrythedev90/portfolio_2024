@@ -1,0 +1,7 @@
+.hero_container {
+  padding-top: 60px !important;
+}
+.hero_row {
+  display: flex;
+  flex-direction: column;
+}
