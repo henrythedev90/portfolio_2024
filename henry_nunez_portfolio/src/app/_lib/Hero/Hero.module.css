@@ -1,7 +1,36 @@
-.hero_container {
+/* .hero_container {
   padding-top: 60px !important;
-}
+} */
 .hero_row {
   display: flex;
   flex-direction: column;
+}
+.hero_content {
+}
+.hero_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px 0px;
+  border-top: 1px solid var(--accent);
+  padding-top: 20px;
+}
+.hero_button button {
+  background: var(--accent);
+  padding: 8px 26px;
+  border: 1px solid var(--text-primary);
+  border-radius: 5px;
+}
+.hero_button button {
+  transition: background 0.5s ease, border 0.5s ease, color 0.5s ease;
+}
+
+.hero_button button:hover {
+  background: var(--background);
+  border: 1px solid var(--accent);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.hero_content_img {
 }

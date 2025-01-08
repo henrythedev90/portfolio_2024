@@ -56,7 +56,6 @@ const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
           </div>
           {/** this is where to toggle for theme buttons*/}
           <div className={classes.theme_buttons}>
-            <span>Pick a theme:</span>
             <div>
               {availableThemes.map((t) => (
                 <button
