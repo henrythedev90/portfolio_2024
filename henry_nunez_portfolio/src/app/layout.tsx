@@ -56,7 +56,11 @@ export default function RootLayout({
           availableThemes={availableThemes}
         />
         <main>{children}</main>
-        <Footer />
+        <Footer
+          theme={theme}
+          setTheme={setTheme}
+          availableThemes={availableThemes}
+        />
       </body>
     </html>
   );
