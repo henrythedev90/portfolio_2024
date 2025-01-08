@@ -55,23 +55,26 @@ const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
             </Link>
           </div>
           {/** this is where to toggle for theme buttons*/}
-          <div className={classes.theme_button}>
-            {availableThemes.map((t) => (
-              <button
-                key={t}
-                onClick={() => setTheme(t)}
-                className={classes.theme_single_button}
-                style={{
-                  border:
-                    theme === t
-                      ? "2px solid var(--accent)"
-                      : "1px solid var(--text-primary)",
-                  borderRadius: theme === t ? "15px 50px" : "50px 15px",
-                }}
-              >
-                {t.charAt(0).toUpperCase() + t.slice(1)}
-              </button>
-            ))}
+          <div className={classes.theme_buttons}>
+            <span>Pick a theme</span>
+            <div>
+              {availableThemes.map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setTheme(t)}
+                  className={classes.theme_single_button}
+                  style={{
+                    border:
+                      theme === t
+                        ? "2px solid var(--accent)"
+                        : "2px solid var(--text-primary)",
+                    borderRadius: theme === t ? "8px 25px" : "25px 8px",
+                  }}
+                >
+                  {t.charAt(0).toUpperCase() + t.slice(1)}
+                </button>
+              ))}
+            </div>
           </div>
           {/** the navigation menu will go here */}
           <div
