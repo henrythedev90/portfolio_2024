@@ -7,6 +7,16 @@
 }
 .hero_content {
 }
+.hero_content h1 {
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 2.5rem !important;
+  margin: 1rem 0rem;
+}
+.hero_content p {
+  line-height: 26px;
+  margin-bottom: 1rem;
+}
 .hero_button {
   display: flex;
   flex-direction: row;
@@ -20,9 +30,7 @@
   padding: 8px 26px;
   border: 1px solid var(--text-primary);
   border-radius: 5px;
-}
-.hero_button button {
-  transition: background 0.5s ease, border 0.5s ease, color 0.5s ease;
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
 
 .hero_button button:hover {
