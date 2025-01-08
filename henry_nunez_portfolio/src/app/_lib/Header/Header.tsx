@@ -55,20 +55,18 @@ const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
             </Link>
           </div>
           {/** this is where to toggle for theme buttons*/}
-          <div>
+          <div className={classes.theme_button}>
             {availableThemes.map((t) => (
               <button
                 key={t}
                 onClick={() => setTheme(t)}
+                className={classes.theme_single_button}
                 style={{
-                  padding: "10px 20px",
-                  backgroundColor: `var(--background)`,
-                  color: `var(--text-primary)`,
                   border:
-                    theme === t ? "2px solid var(--accent)" : "1px solid black",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
+                    theme === t
+                      ? "2px solid var(--accent)"
+                      : "1px solid var(--text-primary)",
+                  borderRadius: theme === t ? "15px 50px" : "50px 15px",
                 }}
               >
                 {t.charAt(0).toUpperCase() + t.slice(1)}

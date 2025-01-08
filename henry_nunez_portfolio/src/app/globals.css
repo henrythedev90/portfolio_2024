@@ -1,14 +1,14 @@
 :root {
   --background: white;
-  --text-primary: black;
-  --text-secondary: royalblue;
-  --accent: purple;
+  --text-primary: #1a1a1a;
+  --text-secondary: #757575;
+  --accent: #fc4c02;
 }
 [data-theme="dark"] {
-  --background: black;
+  --background: #121212;
   --text-primary: white;
   --text-secondary: grey;
-  --accent: darkred;
+  --accent: #ff69b4;
 }
 
 [data-theme="blue"] {

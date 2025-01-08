@@ -43,6 +43,18 @@
 .mobile_menu {
   display: none;
 }
+.theme_button {
+  display: flex;
+  gap: 10px;
+}
+.theme_single_button {
+  padding: 4px 10px;
+  background-color: var(--background);
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
 @media (max-width: 992px) {
   .logo h1 {
