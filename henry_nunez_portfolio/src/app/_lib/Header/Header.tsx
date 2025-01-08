@@ -66,8 +66,8 @@ const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
                   style={{
                     border:
                       theme === t
-                        ? "2px solid var(--accent)"
-                        : "2px solid var(--text-primary)",
+                        ? "1px solid var(--accent)"
+                        : "1px solid var(--text-primary)",
                     borderRadius: theme === t ? "8px 25px" : "25px 8px",
                   }}
                 >

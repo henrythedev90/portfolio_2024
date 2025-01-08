@@ -27,7 +27,7 @@
   color: var(--text-primary);
 }
 .footer_copyright {
-  border-top: 1px solid var(--text-primary);
+  border-top: 2px solid var(--text-primary);
 }
 .footer_copyright {
   font-size: 0.8rem;
@@ -48,4 +48,9 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+.footer_button_theme div button:hover {
+  border: 1px solid var(--text-primary) !important;
+  background-color: var(--accent) !important;
+  color: var(--text-primary) !important;
 }

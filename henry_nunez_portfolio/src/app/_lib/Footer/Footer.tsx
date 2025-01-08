@@ -26,7 +26,7 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
             ))}
           </div>
           <div className={classes.footer_button_theme}>
-            <span>Pick a theme:</span>
+            <span>Theme:</span>
             <div>
               {availableThemes.map((t) => (
                 <button
@@ -35,8 +35,8 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
                   style={{
                     border:
                       theme === t
-                        ? "2px solid var(--accent)"
-                        : "2px solid var(--text-primary)",
+                        ? "1px solid var(--text-primary)"
+                        : "1px solid var(--accent)",
                     backgroundColor:
                       theme === t ? "var(--accent)" : "var(--background)",
                     color:
