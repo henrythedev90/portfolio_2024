@@ -43,7 +43,7 @@ const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
   };
 
   return (
-    <header className={classes.header} ref={headerFunc}>
+    <header className={classes.header} ref={headerRef}>
       <Container>
         <div className={classes.nav_wrapper}>
           {/** potential logo will go here */}
@@ -56,11 +56,24 @@ const Header = ({ theme, setTheme, availableThemes }: HeaderProps) => {
           </div>
           {/** this is where to toggle for theme buttons*/}
           <div>
-            {availableThemes.map((t) => {
-              <button ket={t} onClick={() => setTheme(t)}>
+            {availableThemes.map((t) => (
+              <button
+                key={t}
+                onClick={() => setTheme(t)}
+                style={{
+                  padding: "10px 20px",
+                  backgroundColor: `var(--background)`,
+                  color: `var(--text-primary)`,
+                  border:
+                    theme === t ? "2px solid var(--accent)" : "1px solid black",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                }}
+              >
                 {t.charAt(0).toUpperCase() + t.slice(1)}
-              </button>;
-            })}
+              </button>
+            ))}
           </div>
           {/** the navigation menu will go here */}
           <div

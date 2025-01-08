@@ -1,5 +1,6 @@
 "use client";
 // import type { Metadata } from "next";
+import React, { useState, useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "./_lib/Header/Header";
 import Footer from "./_lib/Footer/Footer";
@@ -26,16 +27,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const defaultDark =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark ? "dark" : "light"
-  );
+  const [theme, setTheme] = useLocalStorage("theme", "light");
+  const [isMounted, setIsMounted] = useState(false);
 
   const availableThemes = ["light", "dark", "blue", "green"];
+
+  useEffect(() => {
+    const themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (!theme) {
+      setTheme(themeMode ? "dark" : "light");
+    }
+    setIsMounted(true);
+  }, [theme, setTheme]);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <html lang="en" data-theme={theme}>
       <head>
