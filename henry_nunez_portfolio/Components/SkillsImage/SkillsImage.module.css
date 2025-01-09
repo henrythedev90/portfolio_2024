@@ -6,7 +6,45 @@
   align-items: center;
   column-gap: 1rem;
   border-radius: 50%;
-  background-color: #ffffff;
-  color: #030201;
+  background-color: var(--text-secondary);
+  color: var(--text-primary);
   position: relative;
+}
+
+.skill_item span i {
+  font-size: 3rem;
+  color: var(--text-primary);
+}
+.skill_item h5 {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+.skill_item:hover i {
+  color: var(--background);
+}
+.skill_item:hover h5 {
+  color: var(--background);
+}
+.skill_item::before,
+.skill_item::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  width: calc(100% + 9px);
+  height: calc(100% + 9px);
+}
+.skill_item::before {
+  top: -5px;
+  left: -5px;
+  border-radius: 50%;
+  border-top: 4px solid var(--accent);
+  border-left: 4px solid var(--accent);
+}
+.skill_item::after {
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border-right: 4px solid var(--accent);
+  border-bottom: 4px solid var(--accent);
 }

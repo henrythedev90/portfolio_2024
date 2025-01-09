@@ -6,7 +6,7 @@ import { SKILLS } from "../../../../Components/data/skillsList";
 
 const Skills = () => {
   return (
-    <div>
+    <div className={classes.skills_section}>
       <Container>
         <div className={classes.skills_container}>
           <div className={classes.skill_row_one}>
@@ -34,7 +34,9 @@ const Skills = () => {
                 <SkillsImage key={index} icon={item.icon} title={item.title} />
               ))}
             </div>
-            <div>Skills</div>
+            <div>
+              <h1>Skills</h1>
+            </div>
             <div className={classes.skill_row_one}>
               {SKILLS.slice(10, 11).map((item, index) => (
                 <SkillsImage key={index} icon={item.icon} title={item.title} />

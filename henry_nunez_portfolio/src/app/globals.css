@@ -1,7 +1,7 @@
 :root {
   --background: white;
   --text-primary: #1a1a1a;
-  --text-secondary: #757575;
+  --text-secondary: #b0b0b0;
   --accent: #fc4c02;
 }
 [data-theme="dark"] {
