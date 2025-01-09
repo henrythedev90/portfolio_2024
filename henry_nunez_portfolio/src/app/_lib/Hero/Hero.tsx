@@ -1,6 +1,8 @@
 "use client";
 import React, { useMemo, useEffect, useState } from "react";
+import Image from "next/image";
 import Container from "../../../../Components/Container/Container";
+import selfie from "../../../../public/images/Henry_Nunez.png";
 import classes from "./Hero.module.css";
 
 const Hero = () => {
@@ -52,7 +54,16 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          <div className={classes.hero_content_img}>Second child of div</div>
+          <div className={classes.hero_content_img}>
+            <div>
+              <Image
+                alt="frontal image of Henry's face"
+                src={selfie}
+                width={300}
+                height={400}
+              />
+            </div>
+          </div>
         </div>
       </Container>
     </section>

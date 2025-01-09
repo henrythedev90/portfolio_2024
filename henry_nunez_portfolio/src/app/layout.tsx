@@ -48,6 +48,12 @@ export default function RootLayout({
     <html lang="en" data-theme={theme}>
       <head>
         <title>Henry Nuñez</title>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header
