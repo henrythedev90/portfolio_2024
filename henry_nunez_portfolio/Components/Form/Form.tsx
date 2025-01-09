@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import classes from "./Form.module.css";
+import Button from "./../Button/Button";
 
 function Form() {
   const [submitted, setSubmitted] = useState(false);
@@ -37,7 +38,7 @@ function Form() {
   }
   return (
     <form className={`${classes.form}`} method="post" onSubmit={handleOnSubmit}>
-      <div className={`${classes.form__group}`}>
+      <div className={`${classes.form_group}`}>
         <input
           type="text"
           placeholder="Name"
@@ -47,7 +48,7 @@ function Form() {
           required
         />
       </div>
-      <div className={`${classes.form__group}`}>
+      <div className={`${classes.form_group}`}>
         <input
           type="email"
           placeholder="Email"
@@ -57,7 +58,7 @@ function Form() {
           required
         />
       </div>
-      <div className={`${classes.form__group}`}>
+      <div className={`${classes.form_group}`}>
         <textarea
           rows={5}
           placeholder="Message"
@@ -72,7 +73,7 @@ function Form() {
           <p>Thank You! Message was sent!</p>
         </div>
       ) : null}
-      <button className="primary__btn">Send</button>
+      <Button text={"Send"} type={"submit"} variant="secondary" />
     </form>
   );
 }

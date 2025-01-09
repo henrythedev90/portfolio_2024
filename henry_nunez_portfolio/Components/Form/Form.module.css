@@ -1,0 +1,36 @@
+.form_group input,
+.form_group textarea {
+  width: 100%;
+  border: 2px solid var(--text-primary);
+  outline: none;
+  background: var(--background);
+  color: var(--text-primary);
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.form_group label {
+  color: var(--text-primary);
+}
+
+.form_group input::placeholder,
+.form_group textarea::placeholder {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.form button {
+  color: var(--text-primary);
+}
+.success {
+  border: 2px solid var(--accent);
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.success p {
+  color: var(--accent);
+  justify-content: center;
+  align-items: center;
+}

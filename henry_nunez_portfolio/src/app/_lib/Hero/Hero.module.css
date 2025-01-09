@@ -41,20 +41,6 @@
   border-top: 1px solid var(--accent);
   padding-top: 20px;
 }
-.hero_button button {
-  background: var(--accent);
-  padding: 8px 26px;
-  border: 1px solid var(--text-primary);
-  border-radius: 5px;
-  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
-}
-
-.hero_button button:hover {
-  background: var(--background);
-  border: 1px solid var(--accent);
-  color: var(--text-primary);
-  cursor: pointer;
-}
 
 .hero_content_img {
   display: flex;

@@ -18,6 +18,6 @@ export const CONTACT_LIST: { href: string; name: string; devicon: string }[] = [
 
 export const CONTACT_INFO: { string: string; icon: string }[] = [
   { icon: "ri-map-pin-line", string: "New York - New York" },
-  { icon: "ri-mail-line", string: "henry.s.nunez@gmail.com" },
-  { icon: "ri-mail-line", string: "henrythedev90@gmail.com" },
+  { icon: "ri-mail-line", string: "Henry.S.Nunez@gmail.com" },
+  { icon: "ri-mail-line", string: "Henrythedev90@gmail.com" },
 ];

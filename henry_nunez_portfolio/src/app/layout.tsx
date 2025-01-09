@@ -54,6 +54,10 @@ export default function RootLayout({
           type="text/css"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header
