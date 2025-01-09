@@ -75,11 +75,6 @@ export const SKILLS: { icon: string; title: string; type: string }[] = [
     type: "Back_End",
   },
   {
-    icon: "notion-plain",
-    title: "notion",
-    type: "Tools",
-  },
-  {
     icon: "figma-plain",
     title: "figma",
     type: "Tools",
