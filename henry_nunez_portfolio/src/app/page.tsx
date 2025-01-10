@@ -10,7 +10,7 @@ export default function Home() {
     <Fragment>
       <Hero />
       <Skills />
-      <div>Project</div>
+      {/* <div>Project</div> */}
       <Contact />
     </Fragment>
   );
