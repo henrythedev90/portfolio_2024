@@ -12,7 +12,7 @@ const SkillsImage = ({ title, icon }: ImageProps) => {
       <span>
         <i className={`devicon-${icon} colored`}></i>
       </span>
-      <h5>{title}</h5>
+      <h5>{title.charAt(0).toUpperCase() + title.slice(1)}</h5>
     </div>
   );
 };

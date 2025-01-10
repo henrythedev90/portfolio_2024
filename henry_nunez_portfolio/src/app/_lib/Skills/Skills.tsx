@@ -20,7 +20,7 @@ const Skills = () => {
     );
   }, []);
   return (
-    <div className={classes.skills_section}>
+    <section className={classes.skills_section}>
       <Container>
         {/* this is for large tablets, laptops and bigger screen */}
         <div className={classes.skills_container}>
@@ -170,7 +170,7 @@ const Skills = () => {
           ))}
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
 export default Skills;

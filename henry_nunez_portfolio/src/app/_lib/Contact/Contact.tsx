@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const Contact = () => {
   return (
-    <div className={classes.contact_section}>
+    <section className={classes.contact_section}>
       <Container>
         <div className={classes.contact_container}>
           <div className={classes.contact_info}>
@@ -43,7 +43,7 @@ const Contact = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
 
