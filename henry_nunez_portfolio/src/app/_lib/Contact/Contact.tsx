@@ -11,7 +11,7 @@ import SectionSubtitle from "../../../../Components/SectionSubtitle/ectionSubtit
 
 const Contact = () => {
   return (
-    <section className={classes.contact_section}>
+    <section id="contact" className={classes.contact_section}>
       <Container>
         <div className={classes.contact_container}>
           <div className={classes.contact_info}>

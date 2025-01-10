@@ -3,7 +3,7 @@ import React, { useMemo, useEffect, useState } from "react";
 import Image from "next/image";
 import Container from "../../../../Components/Container/Container";
 import selfie from "../../../../public/images/Henry_Nunez.png";
-import Button from "./../../../../Components/Button/Button";
+import Button from "../../../../Components/Button/Button";
 import classes from "./Hero.module.css";
 
 const Hero = () => {

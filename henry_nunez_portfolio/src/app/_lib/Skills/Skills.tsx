@@ -5,7 +5,7 @@ import classes from "./Skills.module.css";
 import SkillsImage from "../../../../Components/SkillsImage/SkillsImage";
 import { SKILLS, SKILLS_TYPE } from "../../../../Components/data/skillsList";
 import SectionSubtitle from "../../../../Components/SectionSubtitle/ectionSubtitle";
-import Button from "./../../../../Components/Button/Button";
+import Button from "../../../../Components/Button/Button";
 
 const Skills = () => {
   const [openSkills, setOpenSkills] = useState<string | null>(null);
@@ -21,7 +21,7 @@ const Skills = () => {
     );
   }, []);
   return (
-    <section className={classes.skills_section}>
+    <section id="skills" className={classes.skills_section}>
       <Container>
         {/* this is for large tablets, laptops and bigger screen */}
         <div className={classes.skills_container}>
