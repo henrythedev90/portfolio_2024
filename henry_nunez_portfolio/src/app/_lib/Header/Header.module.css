@@ -140,7 +140,7 @@
     transition: all 1s ease; /* Smooth transition */
   }
   .mobile_logo {
-    display: content !important;
+    display: block; /* Changed from 'content' to 'block' to display contents */
   }
   .mobile_logo_title {
     font-size: 2rem;

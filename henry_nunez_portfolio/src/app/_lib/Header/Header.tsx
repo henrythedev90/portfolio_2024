@@ -56,7 +56,7 @@ const Header = () => {
               ))}
               <div className={`${classes.mobile_logo}`}>
                 <Link href={"/"}>
-                  <h1 className="mobile_logo_title">
+                  <h1 className={classes.mobile_logo_title}>
                     <span>H</span>enry
                   </h1>
                 </Link>
