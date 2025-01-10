@@ -60,11 +60,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header
-          theme={theme}
-          setTheme={setTheme}
-          availableThemes={availableThemes}
-        />
+        <Header />
         <main>{children}</main>
         <Footer
           theme={theme}
