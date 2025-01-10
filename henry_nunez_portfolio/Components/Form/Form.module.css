@@ -1,3 +1,16 @@
+.form_group input:focus {
+  background-color: var(--text-primary);
+  border: 2px solid var(--accent);
+  caret-color: var(--accent);
+  color: var(--shade-medium);
+}
+.form_group textarea:focus {
+  background-color: var(--text-primary);
+  border: 2px solid var(--accent);
+  caret-color: var(--accent);
+  color: var(--shade-medium);
+}
+
 .form_group input,
 .form_group textarea {
   width: 100%;

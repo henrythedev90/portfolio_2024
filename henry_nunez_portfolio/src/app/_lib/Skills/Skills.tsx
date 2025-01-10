@@ -4,6 +4,7 @@ import Container from "../../../../Components/Container/Container";
 import classes from "./Skills.module.css";
 import SkillsImage from "../../../../Components/SkillsImage/SkillsImage";
 import { SKILLS, SKILLS_TYPE } from "../../../../Components/data/skillsList";
+import SectionSubtitle from "../../../../Components/SectionSubtitle/ectionSubtitle";
 import Button from "./../../../../Components/Button/Button";
 
 const Skills = () => {
@@ -50,7 +51,7 @@ const Skills = () => {
               ))}
             </div>
             <div>
-              <h1>Skills</h1>
+              <SectionSubtitle subTitle="Skills" />
             </div>
             <div className={classes.skill_row_one}>
               {SKILLS.slice(10, 11).map((item, index) => (
@@ -124,6 +125,7 @@ const Skills = () => {
 
         {/* This is mobile */}
         <div className={classes.skills_list_mobile}>
+          <SectionSubtitle subTitle="Skills" />
           {SKILLS_TYPE.map((skillType) => (
             <div
               key={skillType.type}

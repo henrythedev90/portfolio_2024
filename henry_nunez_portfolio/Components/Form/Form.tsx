@@ -25,16 +25,31 @@ function Form() {
   function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     fetch("/api/mail", {
-      method: "post",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(values),
-    });
-    setSubmitted(true);
-    removeSuccess();
-    setValues({
-      name: "",
-      email: "",
-      message: "",
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+        setSubmitted(true);
+        removeSuccess();
+        setValues({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
   return (
     <form className={`${classes.form}`} method="post" onSubmit={handleOnSubmit}>

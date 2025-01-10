@@ -25,27 +25,24 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
               </Link>
             ))}
           </div>
-          <div className={classes.footer_button_theme}>
+          <div className={classes.theme_buttons}>
             <span>Theme:</span>
+
             <div>
               {availableThemes.map((t) => (
                 <button
                   key={t}
                   onClick={() => setTheme(t)}
+                  className={classes.theme_single_button}
                   style={{
                     border:
                       theme === t
-                        ? "1px solid var(--text-primary)"
-                        : "1px solid var(--accent)",
-                    backgroundColor:
-                      theme === t ? "var(--accent)" : "var(--background)",
-                    color:
-                      theme === t
-                        ? "var(--text-primary)"
-                        : "var(--text-secondary)",
+                        ? "1px solid var(--accent)"
+                        : "1px solid var(--text-primary)",
+                    borderRadius: theme === t ? "8px 25px" : "25px 8px",
                   }}
                 >
-                  {t.charAt(0).toUpperCase()}
+                  {t.charAt(0).toUpperCase() + t.slice(1)}
                 </button>
               ))}
             </div>

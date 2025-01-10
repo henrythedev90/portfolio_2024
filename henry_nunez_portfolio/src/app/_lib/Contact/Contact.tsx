@@ -7,6 +7,7 @@ import {
 } from "../../../../Components/data/linkList";
 import classes from "./Contact.module.css";
 import Link from "next/link";
+import SectionSubtitle from "../../../../Components/SectionSubtitle/ectionSubtitle";
 
 const Contact = () => {
   return (
@@ -14,7 +15,7 @@ const Contact = () => {
       <Container>
         <div className={classes.contact_container}>
           <div className={classes.contact_info}>
-            <h3>Contact Me!</h3>
+            <SectionSubtitle subTitle="Contact Me!" />
             <ul className={classes.contact_list}>
               {CONTACT_INFO.map((i, index) => (
                 <li key={index} className={classes.contact_list_item}>

@@ -26,6 +26,11 @@
   color: var(--accent);
   border: 2px solid var(--accent);
 }
+.primary:active {
+  background-color: var(--background);
+  color: var(--background);
+  border: 2px solid var(--background);
+}
 
 .secondary {
   background-color: var(--text-primary);
@@ -39,6 +44,11 @@
   background-color: var(--accent);
   color: var(--text-primary) !important;
   border: 2px solid var(--text-primary) !important;
+}
+.secondary:active {
+  background-color: var(--accent);
+  color: var(--accent);
+  border: 2px solid var(--accent);
 }
 
 .outline {
