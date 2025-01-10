@@ -72,6 +72,7 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
+    column-gap: 10px;
     align-items: center;
     width: 100%;
     overflow: hidden;
@@ -138,12 +139,12 @@
   }
   .carousel_skills_grid {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(80px, 1fr)
-    ); /* Adjusted min size for better responsiveness */
-    gap: 15px; /* Reduced gap for better spacing */
-    height: auto; /* Changed from fixed height to auto for better responsiveness */
+    height: auto;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--background);
   }
 }
 

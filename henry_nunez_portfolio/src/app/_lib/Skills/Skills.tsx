@@ -4,18 +4,19 @@ import Container from "../../../../Components/Container/Container";
 import classes from "./Skills.module.css";
 import SkillsImage from "../../../../Components/SkillsImage/SkillsImage";
 import { SKILLS, SKILLS_TYPE } from "../../../../Components/data/skillsList";
+import Button from "./../../../../Components/Button/Button";
 
 const Skills = () => {
   const [openSkills, setOpenSkills] = useState<string | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % SKILLS_TYPE.length);
+    setCurrentSlide((prev) => (prev + 1 >= SKILLS_TYPE.length ? 0 : prev + 1));
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + SKILLS_TYPE.length) % SKILLS_TYPE.length
+    setCurrentSlide((prev) =>
+      prev - 1 < 0 ? SKILLS_TYPE.length - 1 : prev - 1
     );
   }, []);
   return (
@@ -78,12 +79,9 @@ const Skills = () => {
         {/* this is for the tablets */}
         <div className={classes.skills_list_tablet}>
           <div className={classes.carousel_wrapper}>
-            <button
-              className={`${classes.carousel_button} ${classes.carousel_button_prev}`}
-              onClick={prevSlide}
-            >
-              &lt;
-            </button>
+            {currentSlide > 0 && (
+              <Button type={"button"} onClick={prevSlide} text={"<"} />
+            )}
             <div className={classes.carousel_container}>
               <div
                 className="carousel_slide"
@@ -118,12 +116,9 @@ const Skills = () => {
                 ))}
               </div>
             </div>
-            <button
-              className={`${classes.carousel_button} ${classes.carousel_button_next}`}
-              onClick={nextSlide}
-            >
-              &gt;
-            </button>
+            {currentSlide < SKILLS_TYPE.length - 1 && (
+              <Button type={"button"} onClick={nextSlide} text={">"} />
+            )}
           </div>
         </div>
 
