@@ -4,7 +4,6 @@
 @media (max-width: 575px) {
   .hero_container {
     display: flex;
-    flex-direction: column;
     padding-top: 80px;
   }
   .hero_row {
@@ -24,12 +23,14 @@
     line-height: 1.2 !important;
     font-size: 2.5rem !important;
     margin: 1rem 0 !important;
+    text-align: center !important;
   }
   .hero_content p {
     font-size: 0.8rem !important; /* Adjusted font size for better readability */
     font-weight: 520 !important; /* Adjusted font weight for consistency */
     line-height: 20px !important;
     margin: 1rem 0 !important;
+    text-align: center !important;
   }
   .hero_content_img div img {
     height: 240px;
