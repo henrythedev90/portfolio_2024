@@ -1,44 +1,162 @@
-.skills_container {
-  padding-top: 60px;
+.skills_section {
+  padding: 60px 0;
 }
-.skills_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  background-size: contain;
-  flex: 1;
+@media (min-width: 991px) {
+  .skills_list_mobile {
+    display: none;
+  }
+  .skills_list_tablet {
+    display: none;
+  }
+  .skills_container {
+    padding-top: 60px;
+  }
+  .skills_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-size: contain;
+    flex: 1;
+  }
+
+  .skill_row_one {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 1000px;
+    width: 100%;
+  }
+  .skill_row_two {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    max-width: 1000px;
+    width: 100%;
+  }
+  .skill_row_three {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    max-width: 1000px;
+    width: 100%;
+  }
 }
 
-.skill_row_one {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  max-width: 1000px;
-  width: 100%;
+@media (min-width: 576px) and (max-width: 990px) {
+  .skills_list_mobile {
+    display: none;
+  }
+  .skills_container {
+    display: none;
+  }
+  .skills_list_tablet {
+    width: 100%;
+    max-width: 100%; /* Allow full width for better responsiveness */
+    height: auto; /* Changed from fixed height to auto for better responsiveness */
+    display: flex;
+    flex-direction: column; /* Added to stack items vertically */
+    border: 2px solid var(--accent);
+    background-color: var(--background);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Added padding for better spacing */
+  }
+  .carousel_wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  .carousel_container {
+    grid-column: 2 / 3;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid var(--darkerBlack);
+    height: auto; /* Changed from fixed height to auto for better responsiveness */
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.5),
+      0 15px 20px rgba(0, 0, 0, 0.2);
+  }
+  .skill_type_slide {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    width: 100%;
+    height: auto; /* Changed from fixed height to auto for better responsiveness */
+    flex: 0 0 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.3);
+    row-gap: 20px;
+  }
+  .skills_list_desktop_title {
+    grid-row: 1 / 2;
+    margin: 0;
+    height: auto; /* Changed from fixed height to auto for better responsiveness */
+    padding: 10px;
+    border: 2px solid var(--darkerBlack);
+    background-color: var(--darkerBlack);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.5),
+      0 15px 20px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+    font-family: "Impact", sans-serif;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    color: var(--imperialRed);
+    letter-spacing: 0.06em;
+    font-size: 2rem;
+  }
+  .carousel_button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    width: 100%; /* Make buttons full width for better touch targets */
+    max-width: 150px; /* Limit max width for buttons */
+  }
+
+  .carousel_button_prev {
+    grid-column: 1 / 2;
+    justify-self: center;
+  }
+
+  .carousel_button_next {
+    grid-column: 3 / 4;
+    justify-self: center;
+  }
+  .carousel_skills_grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(80px, 1fr)
+    ); /* Adjusted min size for better responsiveness */
+    gap: 15px; /* Reduced gap for better spacing */
+    height: auto; /* Changed from fixed height to auto for better responsiveness */
+  }
 }
-.skill_row_two {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  box-sizing: border-box;
-  max-width: 1000px;
-  width: 100%;
-}
-.skill_row_three {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  box-sizing: border-box;
-  max-width: 1000px;
-  width: 100%;
-}
-@media (max-width: 768px) {
+
+@media (max-width: 575px) {
+  .skills_container {
+    display: none;
+  }
+  .skills_list_tablet {
+    display: none;
+  }
+  .skills_section {
+    padding: 40px 0;
+  }
   .skills_list_mobile {
     display: flex;
     flex-direction: column;
@@ -61,12 +179,15 @@
     padding-left: 20px;
     text-align: center;
     color: var(--text-primary);
-    font-family: "Impact", sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     letter-spacing: 0.06em;
   }
   .skills_list_mobile_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 1rem;
     padding: 10px; /* Removed duplicate padding */
     margin: 10px 0;
@@ -77,10 +198,17 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out;
   }
-  .skills_list_mobile_item .open {
+  .skills_list_mobile_itemopen {
+    display: block;
     max-height: 500px;
     transition: max-height 0.5s ease-in;
+    font-size: 1rem;
+    /* padding: 10px; */
+    border-bottom: 2px solid var(--white);
+    overflow-y: auto; /* Changed to vertical scrolling only */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
+
   .toggle_skills {
     cursor: pointer; /* Changed to pointer for better UX */
     border-bottom: 1px solid var(--accent);
@@ -119,7 +247,6 @@
     text-align: center;
     text-transform: capitalize;
     color: var(--text-primary);
-    font-family: "Impact", sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     letter-spacing: 0.12em;

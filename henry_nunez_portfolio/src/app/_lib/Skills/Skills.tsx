@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Container from "../../../../Components/Container/Container";
 import classes from "./Skills.module.css";
 import SkillsImage from "../../../../Components/SkillsImage/SkillsImage";
@@ -7,10 +7,22 @@ import { SKILLS, SKILLS_TYPE } from "../../../../Components/data/skillsList";
 
 const Skills = () => {
   const [openSkills, setOpenSkills] = useState<string | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % SKILLS_TYPE.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + SKILLS_TYPE.length) % SKILLS_TYPE.length
+    );
+  }, []);
   return (
     <div className={classes.skills_section}>
       <Container>
-        {/* <div className={classes.skills_container}>
+        {/* this is for large tablets, laptops and bigger screen */}
+        <div className={classes.skills_container}>
           <div className={classes.skill_row_one}>
             {SKILLS.slice(0, 3).map(
               (item: { icon: string; title: string }, index: number) => (
@@ -62,7 +74,60 @@ const Skills = () => {
               <SkillsImage key={index} icon={item.icon} title={item.title} />
             ))}
           </div>
-        </div> */}
+        </div>
+        {/* this is for the tablets */}
+        <div className={classes.skills_list_tablet}>
+          <div className={classes.carousel_wrapper}>
+            <button
+              className={`${classes.carousel_button} ${classes.carousel_button_prev}`}
+              onClick={prevSlide}
+            >
+              &lt;
+            </button>
+            <div className={classes.carousel_container}>
+              <div
+                className="carousel_slide"
+                style={{
+                  transform: `translateX(-${currentSlide * 100}%)`,
+                  transition: "transform 0.5s ease-in-out",
+                  display: "flex",
+                  height: "100%",
+                }}
+              >
+                {SKILLS_TYPE.map((skillType) => (
+                  <div
+                    key={skillType.type}
+                    className={classes.skill_type_slide}
+                    style={{ width: `${100 / SKILLS_TYPE.length}%` }}
+                  >
+                    <h2 className={classes.skills_list_desktop_title}>
+                      {skillType.type.replace("_", " ")}
+                    </h2>
+                    <ul className={classes.carousel_skills_grid}>
+                      {SKILLS.filter(
+                        (skill) => skill.type === skillType.type
+                      ).map((skill, skillIndex) => (
+                        <SkillsImage
+                          key={skillIndex}
+                          title={skill.title}
+                          icon={skill.icon}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button
+              className={`${classes.carousel_button} ${classes.carousel_button_next}`}
+              onClick={nextSlide}
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+
+        {/* This is mobile */}
         <div className={classes.skills_list_mobile}>
           {SKILLS_TYPE.map((skillType) => (
             <div

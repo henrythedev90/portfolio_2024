@@ -48,3 +48,26 @@
   border-right: 4px solid var(--accent);
   border-bottom: 4px solid var(--accent);
 }
+@media (max-width: 768px) {
+  .skill_item {
+    padding: 10px 0;
+    height: 34px;
+    border-radius: 5px;
+    margin: 5px 10px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .skill_item span i {
+    font-size: 1.6rem;
+  }
+  .skill_item h5 {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    .skill_item::before,
+    .skill_item::after {
+      display: none;
+    }
+  }
+}
