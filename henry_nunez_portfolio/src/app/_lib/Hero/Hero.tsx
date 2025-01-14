@@ -1,9 +1,9 @@
 "use client";
 import React, { useMemo, useEffect, useState } from "react";
 import Image from "next/image";
-import Container from "../../../../pages/components/Container/Container";
+import Container from "../../components/Container/Container";
 import selfie from "../../../../public/images/Henry_Nunez.png";
-import Button from "../../../../pages/components/Button/Button";
+import Button from "../../components/Button/Button";
 import classes from "./Hero.module.css";
 
 const Hero = () => {

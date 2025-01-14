@@ -1,13 +1,10 @@
 import React from "react";
-import Form from "../../../../pages/components/Form/Form";
-import Container from "../../../../pages/components/Container/Container";
-import {
-  CONTACT_LIST,
-  CONTACT_INFO,
-} from "../../../../pages/components/data/linkList";
+import Form from "../../components/Form/Form";
+import Container from "../../components/Container/Container";
+import { CONTACT_LIST, CONTACT_INFO } from "../../components/data/linkList";
 import classes from "./Contact.module.css";
 import Link from "next/link";
-import SectionSubtitle from "../../../../pages/components/SectionSubtitle/ectionSubtitle";
+import SectionSubtitle from "../../components/SectionSubtitle/ectionSubtitle";
 
 const Contact = () => {
   return (

@@ -1,14 +1,11 @@
 "use client";
 import React, { useState, useCallback } from "react";
-import Container from "../../../../pages/components/Container/Container";
+import Container from "../../components/Container/Container";
 import classes from "./Skills.module.css";
-import SkillsImage from "../../../../pages/components/SkillsImage/SkillsImage";
-import {
-  SKILLS,
-  SKILLS_TYPE,
-} from "../../../../pages/components/data/skillsList";
-import SectionSubtitle from "../../../../pages/components/SectionSubtitle/ectionSubtitle";
-import Button from "../../../../pages/components/Button/Button";
+import SkillsImage from "../../components/SkillsImage/SkillsImage";
+import { SKILLS, SKILLS_TYPE } from "../../components/data/skillsList";
+import SectionSubtitle from "../../components/SectionSubtitle/ectionSubtitle";
+import Button from "../../components/Button/Button";
 
 const Skills = () => {
   const [openSkills, setOpenSkills] = useState<string | null>(null);

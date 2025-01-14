@@ -1,6 +1,6 @@
 import React /* { useEffect, useRef, useState } */ from "react";
-import Container from "../../../../pages/components/Container/Container";
-import { NAV_LINK } from "../../../../pages/components/data/navLinks";
+import Container from "../../components/Container/Container";
+import { NAV_LINK } from "../../components/data/navLinks";
 import classes from "./Footer.module.css";
 import Link from "next/link";
 
