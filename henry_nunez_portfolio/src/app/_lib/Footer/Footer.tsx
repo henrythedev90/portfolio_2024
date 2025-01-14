@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
 import Container from "../../components/Container/Container";
 import { NAV_LINK } from "../../components/data/navLinks";
@@ -66,7 +67,9 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
               {availableThemes.map((t) => (
                 <button
                   key={t}
-                  onClick={() => setTheme(t)}
+                  onClick={() => {
+                    setTheme(t);
+                  }}
                   className={classes.theme_single_button}
                   style={{
                     border:
