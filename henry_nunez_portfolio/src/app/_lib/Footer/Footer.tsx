@@ -1,4 +1,4 @@
-import React /* { useEffect, useRef, useState } */ from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "../../components/Container/Container";
 import { NAV_LINK } from "../../components/data/navLinks";
 import classes from "./Footer.module.css";
@@ -13,28 +13,29 @@ type FooterProps = {
 const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
   const date = new Date();
   const year = date.getFullYear();
+  const footerRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting); // Update visibility state
+      },
+      { threshold: 0.1 } // Trigger when 10% of the footer is visible
+    );
 
-  // const footerDiv = document.querySelector("#footerDiv");
-  // const observer = new IntersectionObserver(
-  //   (entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         console.log("Div is visible on the screen");
-  //       } else {
-  //         console.log("Div si not visible");
-  //       }
-  //     });
-  //   },
-  //   {
-  //     threshold: 0.1, // Adjust the threshold as needed
-  //   }
-  // );
+    if (footerRef.current) {
+      observer.observe(footerRef.current); // Observe the footer element
+    }
 
-  // if (footerDiv) {
-  //   observer.observe(footerDiv);
-  // }
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current); // Clean up observer
+      }
+    };
+  }, []);
+
   return (
-    <footer id="footerDiv">
+    <footer id="footerDiv" ref={footerRef}>
       <Container>
         <div className={classes.footer_container}>
           <div className={`${classes.footer_menu}`}>
@@ -44,10 +45,19 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
               </Link>
             ))}
           </div>
-          <div className={classes.theme_buttons}>
-            <span>Theme:</span>
+          <div
+            className={classes.theme_buttons}
+            style={{
+              position: isVisible ? "relative" : "fixed",
+              bottom: isVisible ? "auto" : "0",
+              width: "100%",
+              right: "-2px",
+              display: "flex",
+            }}
+          >
+            {isVisible ? <span>Theme:</span> : null}
 
-            <div>
+            <div style={{ flexDirection: isVisible ? "row" : "column" }}>
               {availableThemes.map((t) => (
                 <button
                   key={t}
@@ -58,11 +68,20 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
                       theme === t
                         ? "1px solid var(--accent)"
                         : "1px solid var(--text-primary)",
-                    borderRadius: theme === t ? "8px 25px" : "25px 8px",
+                    borderRadius:
+                      theme === t
+                        ? isVisible
+                          ? "8px 25px"
+                          : "50%"
+                        : isVisible
+                        ? "25px 8px"
+                        : "50%",
                     marginBottom: "10px", // Add some spacing between buttons
                   }}
                 >
-                  {t.charAt(0).toUpperCase() + t.slice(1)}
+                  {isVisible
+                    ? t.charAt(0).toUpperCase() + t.slice(1)
+                    : t.charAt(0).toUpperCase()}
                 </button>
               ))}
             </div>
