@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import Container from "../../../../Components/Container/Container";
+import Container from "../../../../pages/components/Container/Container";
 import classes from "./Header.module.css";
 import Link from "next/link";
-import { NAV_LINK } from "../../../../Components/data/navLinks";
+import { NAV_LINK } from "../../../../pages/components/data/navLinks";
 
 const Header = () => {
   {

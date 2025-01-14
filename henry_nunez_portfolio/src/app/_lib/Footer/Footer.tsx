@@ -1,6 +1,6 @@
 import React /* { useEffect, useRef, useState } */ from "react";
-import Container from "../../../../Components/Container/Container";
-import { NAV_LINK } from "../../../../Components/data/navLinks";
+import Container from "../../../../pages/components/Container/Container";
+import { NAV_LINK } from "../../../../pages/components/data/navLinks";
 import classes from "./Footer.module.css";
 import Link from "next/link";
 
@@ -14,8 +14,27 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
   const date = new Date();
   const year = date.getFullYear();
 
+  // const footerDiv = document.querySelector("#footerDiv");
+  // const observer = new IntersectionObserver(
+  //   (entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         console.log("Div is visible on the screen");
+  //       } else {
+  //         console.log("Div si not visible");
+  //       }
+  //     });
+  //   },
+  //   {
+  //     threshold: 0.1, // Adjust the threshold as needed
+  //   }
+  // );
+
+  // if (footerDiv) {
+  //   observer.observe(footerDiv);
+  // }
   return (
-    <footer>
+    <footer id="footerDiv">
       <Container>
         <div className={classes.footer_container}>
           <div className={`${classes.footer_menu}`}>
@@ -40,6 +59,7 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
                         ? "1px solid var(--accent)"
                         : "1px solid var(--text-primary)",
                     borderRadius: theme === t ? "8px 25px" : "25px 8px",
+                    marginBottom: "10px", // Add some spacing between buttons
                   }}
                 >
                   {t.charAt(0).toUpperCase() + t.slice(1)}

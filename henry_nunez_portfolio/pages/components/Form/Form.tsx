@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import classes from "./Form.module.css";
-import Button from "./../Button/Button";
+import Button from "../Button/Button";
 
 function Form() {
   const [submitted, setSubmitted] = useState(false);
@@ -61,6 +61,7 @@ function Form() {
           onChange={handleChanges}
           value={values.name}
           required
+          autoComplete="given-name"
         />
       </div>
       <div className={`${classes.form_group}`}>
@@ -71,6 +72,7 @@ function Form() {
           onChange={handleChanges}
           value={values.email}
           required
+          autoComplete="off"
         />
       </div>
       <div className={`${classes.form_group}`}>
@@ -80,6 +82,7 @@ function Form() {
           name="message"
           onChange={handleChanges}
           value={values.message}
+          autoComplete="off"
           required
         />
       </div>

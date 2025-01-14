@@ -1,11 +1,7 @@
-"use client";
 // import type { Metadata } from "next";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "./_lib/Header/Header";
-import Footer from "./_lib/Footer/Footer";
 import "./globals.css";
-import useLocalStorage from "use-local-storage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,25 +23,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [theme, setTheme] = useLocalStorage("theme", "light");
-  const [isMounted, setIsMounted] = useState(false);
-
-  const availableThemes = ["light", "dark", "blue", "green"];
-
-  useEffect(() => {
-    const themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (!theme) {
-      setTheme(themeMode ? "dark" : "light");
-    }
-    setIsMounted(true);
-  }, [theme, setTheme]);
-
-  if (!isMounted) {
-    return null;
-  }
-
   return (
-    <html lang="en" data-theme={theme}>
+    <html lang="en">
       <head>
         <title>Henry Nuñez</title>
 
@@ -60,13 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
         <main>{children}</main>
-        <Footer
-          theme={theme}
-          setTheme={setTheme}
-          availableThemes={availableThemes}
-        />
       </body>
     </html>
   );
