@@ -57,7 +57,12 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
           >
             {isVisible ? <span>Theme:</span> : null}
 
-            <div style={{ flexDirection: isVisible ? "row" : "column" }}>
+            <div
+              style={{
+                flexDirection: isVisible ? "row" : "column",
+                opacity: isVisible ? "1" : "0.75",
+              }}
+            >
               {availableThemes.map((t) => (
                 <button
                   key={t}

@@ -4,7 +4,7 @@ import Container from "../../components/Container/Container";
 import { CONTACT_LIST, CONTACT_INFO } from "../../components/data/linkList";
 import classes from "./Contact.module.css";
 import Link from "next/link";
-import SectionSubtitle from "../../components/SectionSubtitle/ectionSubtitle";
+import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
 
 const Contact = () => {
   return (

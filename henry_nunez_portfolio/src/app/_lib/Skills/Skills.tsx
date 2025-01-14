@@ -4,7 +4,7 @@ import Container from "../../components/Container/Container";
 import classes from "./Skills.module.css";
 import SkillsImage from "../../components/SkillsImage/SkillsImage";
 import { SKILLS, SKILLS_TYPE } from "../../components/data/skillsList";
-import SectionSubtitle from "../../components/SectionSubtitle/ectionSubtitle";
+import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
 import Button from "../../components/Button/Button";
 
 const Skills = () => {
