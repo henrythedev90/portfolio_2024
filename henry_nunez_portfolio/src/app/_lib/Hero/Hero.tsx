@@ -29,7 +29,7 @@ const Hero = () => {
             <h1>Hello World {currentEmoji}</h1>
             <p>
               My name is Henry Nuñez and I have a little over 4 years of
-              dedicated experience as a Software Engineer, I’ve contributed to
+              dedicated experience as a Software Engineer. I’ve contributed to
               innovative fintech solutions and supported non-profit
               organizations with impactful front-end work. Known for my
               problem-solving abilities, I’ve consistently delivered effective
