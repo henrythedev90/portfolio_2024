@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useRef } from "react";
 import Container from "../../components/Container/Container";
 import classes from "./Header.module.css";

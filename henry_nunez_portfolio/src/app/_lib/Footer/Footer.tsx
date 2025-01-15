@@ -50,10 +50,11 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
             className={classes.theme_buttons}
             style={{
               position: isVisible ? "relative" : "fixed",
-              bottom: isVisible ? "auto" : "0",
+              bottom: isVisible ? "auto" : "50px",
               width: "100%",
               right: "-2px",
               display: "flex",
+              rowGap: isVisible ? undefined : "10px",
             }}
           >
             {isVisible ? <span>Theme:</span> : null}
