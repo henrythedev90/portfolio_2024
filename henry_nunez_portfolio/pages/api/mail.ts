@@ -15,19 +15,20 @@ export default async function handler(
     }
 
     try {
-      const secretKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
       const response = await axios.post(
         `https://www.google.com/recaptcha/api/siteverify`,
         null,
         {
           params: {
-            secret: secretKey,
+            secret: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
             response: recaptchaToken,
           },
         }
       );
-      const { success } = response.data;
-      if (!success) {
+
+      console.log("response:", response.data);
+
+      if (!response.data.success) {
         return res
           .status(400)
           .json({ message: "Recaptcha verification failed" });

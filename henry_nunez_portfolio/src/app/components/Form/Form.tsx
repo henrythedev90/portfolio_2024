@@ -61,6 +61,7 @@ function Form() {
 
     if (!recaptchaToken) {
       console.error("reCAPTCHA verification failed. No token generated.");
+      console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
       alert("Please complete the reCAPTCHA verification.");
       return;
     }
@@ -132,11 +133,7 @@ function Form() {
         data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
         data-callback={handleReCaptchaVerify}
         data-size="invisible"
-      >
-        This site is protected by reCAPTCHA and the Google
-        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-      </div>
+      ></div>
       {submitted ? (
         <div className={`${classes.success}`}>
           <p>Thank You! Message was sent!</p>

@@ -41,7 +41,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Henry Nuñez</title>
-
         <link
           rel="stylesheet"
           type="text/css"
