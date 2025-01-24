@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useCallback } from "react";
 import Container from "../../components/Container/Container";
 import classes from "./Skills.module.css";

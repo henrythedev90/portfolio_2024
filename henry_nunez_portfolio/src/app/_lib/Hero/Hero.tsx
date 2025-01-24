@@ -1,3 +1,4 @@
+"use client";
 import React, { useMemo, useEffect, useState } from "react";
 import Image from "next/image";
 import Container from "../../components/Container/Container";
