@@ -37,10 +37,14 @@
 }
 .success {
   border: 2px solid var(--accent);
+  background-color: var(--shade-medium);
   text-align: center;
   padding-top: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .success p {
   color: var(--accent);
