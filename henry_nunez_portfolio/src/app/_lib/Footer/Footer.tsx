@@ -51,10 +51,11 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
             style={{
               position: isVisible ? "relative" : "fixed",
               bottom: isVisible ? "auto" : "50px",
-              width: "100%",
-              right: "-2px",
+              width: isVisible ? "auto" : "fit-content", // Prevents full-width issue
               display: "flex",
+              left: isVisible ? "auto" : "0px", // Ensures it stays at the leftmost edge
               rowGap: isVisible ? undefined : "10px",
+              marginLeft: isVisible ? "0" : "10px", // Adds slight spacing from the left edge
             }}
           >
             {isVisible ? <span>Theme:</span> : null}

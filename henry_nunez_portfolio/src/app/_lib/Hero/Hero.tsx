@@ -45,14 +45,17 @@ const Hero = () => {
             <p>Occasionally I train for marathons and run long distance!</p>
             <p>Currently based in New York City.</p>
             <div className={classes.hero_button}>
-              <a
-                href="/papers/Henry_Nunez_Resume_2025.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                download
-              >
-                <Button text={"Resume"} variant="primary" />
-              </a>
+              <Button
+                text="Resume"
+                variant="primary"
+                onClick={() => {
+                  window.open(
+                    "/papers/Henry_Nunez_Resume_2025.pdf",
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                }}
+              />
             </div>
           </div>
           <div className={classes.hero_content_img}>
