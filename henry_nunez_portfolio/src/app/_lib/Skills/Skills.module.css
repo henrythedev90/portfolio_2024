@@ -50,7 +50,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 990px) {
+@media (min-width: 764px) and (max-width: 990px) {
   .skills_list_mobile {
     display: none;
   }
@@ -148,7 +148,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 762px) {
   .skills_container {
     display: none;
   }
