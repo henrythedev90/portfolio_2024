@@ -5,7 +5,7 @@ export const CONTACT_LIST: { href: string; name: string; devicon: string }[] = [
     devicon: "devicon-linkedin-plain",
   },
   {
-    href: "https://github.com/Henrynunez112/",
+    href: "https://github.com/henrythedev90/",
     name: "github",
     devicon: "devicon-github-original",
   },
