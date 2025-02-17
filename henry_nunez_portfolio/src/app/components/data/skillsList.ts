@@ -94,6 +94,11 @@ export const SKILLS: { icon: string; title: string; type: string }[] = [
     title: "docker",
     type: "Back_End",
   },
+  {
+    icon: "mongodb-plain-wordmark",
+    title: "mongodb",
+    type: "Back_End",
+  },
 ];
 
 export const SKILLS_TYPE: { path: string; type: string }[] = [
