@@ -9,9 +9,27 @@ import Container from "../Container/Container";
 const Carousel = ({ projects }: { projects: Project[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 640, height: 400 });
 
   useEffect(() => {
     setIsMounted(true);
+
+    // Set initial dimensions
+    const updateDimensions = () => {
+      const width = Math.min(640, window.innerWidth * 0.8);
+      const height = Math.min(400, window.innerWidth * 0.5);
+      setDimensions({ width, height });
+    };
+
+    updateDimensions();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", updateDimensions);
+
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
   }, []);
 
   const nextSlide = () => {
@@ -83,8 +101,8 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
                     <Image
                       src={project.image}
                       alt={project.image_alt}
-                      width={Math.min(640, window.innerWidth * 0.8)}
-                      height={Math.min(400, window.innerWidth * 0.5)}
+                      width={dimensions.width}
+                      height={dimensions.height}
                       priority={index === activeIndex}
                     />
                   </div>

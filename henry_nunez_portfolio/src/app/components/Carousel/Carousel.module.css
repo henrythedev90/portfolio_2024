@@ -14,13 +14,22 @@
   color: var(--accent);
 }
 
+.carousel_title_span {
+  color: var(--accent);
+  font-weight: bold;
+}
+
 .carousel_section {
   padding: 20px 0;
   border: 4px solid var(--accent);
   border-radius: 8px;
   margin-bottom: 20px;
   background-color: var(--text-secondary);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px;
 }
+
 .carousel {
   position: relative;
   width: 100%;
@@ -42,6 +51,7 @@
 .carousel_inner {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .carousel_item {
@@ -51,6 +61,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  width: 100%;
 }
 
 .carousel_item.active {
@@ -64,6 +75,7 @@
   align-items: center;
   gap: clamp(0.25rem, 1vw, 0.5rem);
   padding: clamp(0.25rem, 1vw, 0.5rem);
+  width: 100%;
 }
 
 .content h3 {
@@ -73,9 +85,13 @@
   color: var(--accent);
   text-align: center;
 }
+
 .project_title {
   border-bottom: 2px solid var(--accent);
   padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
 }
 
 .project_image {
@@ -91,6 +107,7 @@
   height: auto;
   object-fit: cover;
   border-radius: 6px;
+  aspect-ratio: 16/10;
 }
 
 .content p {
@@ -105,6 +122,8 @@
   gap: 0.5rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .project_links a {
@@ -162,6 +181,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  pointer-events: none;
 }
 
 .carousel_button {
@@ -179,6 +199,7 @@
   transition: opacity 0.3s ease;
   font-weight: bold;
   font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+  pointer-events: auto;
 }
 
 .carousel_button:hover {
@@ -221,29 +242,19 @@
   border-radius: 8px;
   background-color: var(--background);
   color: var(--text-primary);
+  width: 90%;
+  margin: 0 auto;
 }
 
 /* Media queries for different screen sizes */
 @media (min-width: 768px) {
   .carousel {
-    position: relative;
-    width: 100%;
-    max-width: min(400px, 90vw);
-    margin: 0 auto;
-    overflow: hidden;
-    border: 4px solid var(--accent);
-    margin: 0px 4px;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-self: center;
-    padding-bottom: 4px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    background-color: var(--text-secondary);
+    max-width: min(600px, 90vw);
   }
+
   .carousel_section {
     background-color: var(--shade-medium);
+    max-width: 700px;
   }
 
   .carousel_indicator {
@@ -253,6 +264,7 @@
   .carousel_indicator.active {
     background-color: var(--shade-dark);
   }
+
   .carousel_title {
     background-color: var(--text-secondary);
   }
@@ -260,7 +272,11 @@
 
 @media (min-width: 1024px) {
   .carousel {
-    max-width: min(600px, 50vw);
+    max-width: min(700px, 70vw);
+  }
+
+  .carousel_section {
+    max-width: 800px;
   }
 }
 
@@ -268,13 +284,52 @@
   .project_links {
     flex-direction: column;
     gap: 0.3rem;
+    width: 80%;
   }
 
   .carousel_button {
     width: 20px;
     height: 20px;
+    margin: 0 8px;
   }
+
   .carousel_item {
     padding: 5px;
+  }
+
+  .carousel_title {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 8px;
+  }
+
+  .carousel_section {
+    padding: 10px 0;
+    margin-bottom: 15px;
+  }
+
+  .carousel {
+    margin: 0 2px 8px;
+  }
+
+  .project_description {
+    padding: 10px;
+    width: 95%;
+  }
+
+  .project_tech {
+    padding: 5px;
+  }
+
+  .project_tech span {
+    border-width: 2px;
+  }
+
+  .project_links a {
+    border-width: 2px;
+    width: 100%;
+    text-align: center;
   }
 }
