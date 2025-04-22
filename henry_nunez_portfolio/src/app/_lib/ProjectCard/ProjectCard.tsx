@@ -10,10 +10,18 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <div className={classes.project_card_container}>
         <div className={classes.project_card}>
           <h3>{project.title}</h3>
-          <Link href={project.github} target="_blank">
+          <Link
+            href={project.github}
+            target="_blank"
+            className={classes.project_card_link}
+          >
             GitHub
           </Link>
-          <Link href={project.link} target="_blank">
+          <Link
+            href={project.link}
+            target="_blank"
+            className={classes.project_card_link}
+          >
             Live
           </Link>
         </div>

@@ -76,3 +76,21 @@
   max-width: 500px;
   align-self: center;
 }
+.project_card_link {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  border: 2px solid var(--accent);
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--accent);
+  background-color: var(--background);
+}
+.project_card_link:hover {
+  background-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+.project_card_image {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
