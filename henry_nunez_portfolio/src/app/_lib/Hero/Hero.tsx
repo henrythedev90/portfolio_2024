@@ -50,7 +50,7 @@ const Hero = () => {
                 variant="primary"
                 onClick={() => {
                   window.open(
-                    "/papers/Henry_Nunez_Resume_2025.pdf",
+                    "/papers/Henry_Nunez_Resume.pdf",
                     "_blank",
                     "noopener,noreferrer"
                   );
