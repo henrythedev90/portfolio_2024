@@ -5,22 +5,30 @@
   justify-content: center;
   margin-top: 100px;
 }
+
 .title {
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2rem;
+  border-bottom: 4px solid var(--accent);
+  padding-bottom: 10px;
+  color: var(--accent);
+  letter-spacing: 2px;
 }
 
 .title_span {
   color: var(--accent);
+  font-weight: bold;
 }
+
 .projects_grid {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .projects_grid > div {
   display: flex;
   flex-direction: column;
@@ -31,7 +39,7 @@
 }
 
 .project_card_container {
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 0 10px 0 var(--accent);
   display: flex;
   flex-direction: column;
@@ -40,11 +48,21 @@
   padding: 20px 0px;
   max-width: 720px;
   width: 100%;
-  border: 2px solid var(--accent);
+  border: 4px solid var(--accent);
+  background-color: var(--text-secondary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.project_card_container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project_card {
-  border-bottom: 2px solid var(--accent);
+  background-color: var(--shade-medium);
+  border-bottom: 4px solid var(--text-primary);
+  border-top: 4px solid var(--text-primary);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,44 +71,127 @@
   margin-bottom: 1rem;
   width: 100%;
 }
+
+.project_card h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--shade-soft);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .project_card_technologies {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 0.25rem;
   width: 100%;
   max-width: 640px;
+  justify-content: center;
 }
+
 .project_card_technologies p {
-  border-radius: 10px;
-  border: 2px solid var(--shade-soft);
-  padding: 10px;
-  background-color: var(--text-secondary);
+  border-radius: 6px;
+  border: 4px solid var(--shade-soft);
+  padding: 6px 10px;
+  background-color: var(--background);
   color: var(--text-primary);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .project_card_description {
   padding: 20px;
   text-align: center;
-  max-width: 500px;
+  max-width: 600px;
   align-self: center;
+  line-height: 1.5;
+  background-color: var(--background);
+  border: 4px solid var(--accent);
+  border-radius: 8px;
+  margin: 0 20px;
+  font-size: 0.95rem;
 }
+
 .project_card_link {
   text-decoration: none;
   color: var(--text-primary);
-  font-size: 1.1rem;
-  border: 2px solid var(--accent);
-  padding: 10px;
-  border-radius: 10px;
+  font-size: 1rem;
+  border: 4px solid var(--accent);
+  padding: 8px 16px;
+  border-radius: 6px;
   color: var(--accent);
   background-color: var(--background);
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
+
 .project_card_link:hover {
   background-color: var(--text-secondary);
   color: var(--text-primary);
+  transform: translateY(-2px);
 }
+
 .project_card_image {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  border: 4px solid var(--accent);
+  max-width: 90%;
+}
+
+.project_card_image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .project_card {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .project_card_container {
+    width: 90%;
+  }
+
+  .project_card_description {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .project_card_technologies p {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+    border-width: 2px;
+  }
+
+  .project_card_link {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project_card_container {
+    width: 95%;
+    padding: 10px 0;
+  }
+
+  .project_card_technologies {
+    padding: 0.5rem;
+  }
+
+  .project_card_description {
+    margin: 0 10px;
+  }
 }

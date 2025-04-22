@@ -1,14 +1,16 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "../data/projects";
 import classes from "./Carousel.module.css";
+import Button from "../Button/Button";
 
 const Carousel = ({ projects }: { projects: Project[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 640, height: 400 });
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -31,20 +33,41 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
     };
   }, []);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
     setActiveIndex((prevIndex) =>
       prevIndex === projects.length - 1 ? 0 : prevIndex + 1
     );
-  };
 
-  const prevSlide = () => {
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500); // Match the transition duration in CSS
+  }, [projects.length, isAnimating]);
+
+  const prevSlide = useCallback(() => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      prevIndex - 1 < 0 ? projects.length - 1 : prevIndex - 1
     );
-  };
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500); // Match the transition duration in CSS
+  }, [projects.length, isAnimating]);
 
   const goToSlide = (index: number) => {
+    if (isAnimating || index === activeIndex) return;
+
+    setIsAnimating(true);
     setActiveIndex(index);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500); // Match the transition duration in CSS
   };
 
   // Auto advance slides every 5 seconds
@@ -52,11 +75,13 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
     if (!isMounted) return;
 
     const interval = setInterval(() => {
-      nextSlide();
+      if (!isAnimating) {
+        nextSlide();
+      }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isMounted, activeIndex]);
+  }, [isMounted, nextSlide, isAnimating]);
 
   if (!isMounted) {
     return null;
@@ -66,7 +91,9 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
     <div className={classes.carousel_container}>
       <section className={classes.carousel_section}>
         <h2 className={classes.carousel_title}>
-          <span className={classes.carousel_title_span}>P</span>rojects
+          <Link href="/projects">
+            <span className={classes.carousel_title_span}>P</span>rojects
+          </Link>
         </h2>
         <div className={classes.carousel}>
           <div className={classes.carousel_inner}>
@@ -76,10 +103,6 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
                 className={`${classes.carousel_item} ${
                   index === activeIndex ? classes.active : ""
                 }`}
-                style={{
-                  transform: `translateX(${-activeIndex * 100}%)`,
-                  opacity: index === activeIndex ? 1 : 0,
-                }}
               >
                 <div className={classes.content}>
                   <h2 className={classes.project_title}>{project.title}</h2>
@@ -109,12 +132,16 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
                     {project.description}
                   </p>
                   <div className={classes.project_links}>
-                    <Link href={project.github} target="_blank">
-                      GitHub
-                    </Link>
-                    <Link href={project.link} target="_blank">
-                      Live Demo
-                    </Link>
+                    <Button
+                      type="button"
+                      onClick={() => window.open(project.github, "_blank")}
+                      text="GitHub"
+                    />
+                    <Button
+                      type="button"
+                      onClick={() => window.open(project.link, "_blank")}
+                      text="Live Demo"
+                    />
                   </div>
                 </div>
               </div>
@@ -122,20 +149,18 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
           </div>
 
           <div className={classes.carousel_controls}>
-            <button
-              className={`${classes.carousel_button} ${classes.carousel_prev}`}
+            <Button
+              type="button"
               onClick={prevSlide}
-              aria-label="Previous slide"
-            >
-              &lt;
-            </button>
-            <button
-              className={`${classes.carousel_button} ${classes.carousel_next}`}
+              text={"<"}
+              className={`${classes.carousel_button} ${classes.carousel_prev}`}
+            />
+            <Button
+              type="button"
               onClick={nextSlide}
-              aria-label="Next slide"
-            >
-              &gt;
-            </button>
+              text={">"}
+              className={`${classes.carousel_button} ${classes.carousel_next}`}
+            />
           </div>
 
           <div className={classes.carousel_indicators}>

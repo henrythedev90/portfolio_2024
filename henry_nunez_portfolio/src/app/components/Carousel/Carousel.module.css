@@ -60,23 +60,29 @@
 
 .carousel_inner {
   display: flex;
-  transition: transform 0.5s ease;
   width: 100%;
+  position: relative;
 }
 
 .carousel_item {
   min-width: 100%;
+  width: 100%;
   padding: clamp(5px, 2vw, 10px);
   box-sizing: border-box;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
-  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(0.8);
 }
 
 .carousel_item.active {
   opacity: 1;
   pointer-events: all;
+  transform: scale(1);
+  position: relative;
 }
 
 .content {
@@ -106,7 +112,7 @@
 
 .project_image {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1),
     0 1px 2px -1px rgba(0, 0, 0, 0.06);
@@ -197,8 +203,8 @@
 .carousel_button {
   background-color: var(--accent);
   color: var(--background);
-  border: none;
-  border-radius: 50%;
+  border: 1px solid var(--text-primary);
+  border-radius: 6px;
   width: clamp(20px, 6vw, 24px);
   height: clamp(20px, 6vw, 24px);
   display: flex;
