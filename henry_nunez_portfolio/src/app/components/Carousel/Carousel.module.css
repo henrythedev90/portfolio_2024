@@ -232,6 +232,8 @@
     flex-direction: column;
     align-self: center;
     justify-self: center;
+    justify-content: center;
+    align-items: center;
   }
   .carousel_section {
     background-color: var(--shade-medium);
