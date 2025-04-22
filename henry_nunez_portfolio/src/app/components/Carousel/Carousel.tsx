@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Project } from "../data/projects";
 import classes from "./Carousel.module.css";
-import Container from "../Container/Container";
 
 const Carousel = ({ projects }: { projects: Project[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -64,7 +63,7 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
   }
 
   return (
-    <Container>
+    <div className={classes.carousel_container}>
       <section className={classes.carousel_section}>
         <h2 className={classes.carousel_title}>
           <span className={classes.carousel_title_span}>P</span>rojects
@@ -153,7 +152,7 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
           </div>
         </div>
       </section>
-    </Container>
+    </div>
   );
 };
 

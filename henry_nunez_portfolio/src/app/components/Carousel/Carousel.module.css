@@ -1,3 +1,10 @@
+.carousel_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .carousel_title {
   margin-bottom: 20px;
   border: 2px solid var(--text-primary);
@@ -28,6 +35,9 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .carousel {
@@ -40,8 +50,8 @@
   margin: 0px 4px;
   display: flex;
   flex-direction: column;
-  align-self: center;
-  justify-self: center;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 4px;
   margin-bottom: 10px;
   border-radius: 8px;
@@ -250,11 +260,14 @@
 @media (min-width: 768px) {
   .carousel {
     max-width: min(600px, 90vw);
+    margin: 0 auto 10px;
   }
 
   .carousel_section {
     background-color: var(--shade-medium);
     max-width: 700px;
+    padding: 20px;
+    width: 95%;
   }
 
   .carousel_indicator {
@@ -267,16 +280,20 @@
 
   .carousel_title {
     background-color: var(--text-secondary);
+    width: calc(100% - 40px);
+    margin: 0 auto 20px;
   }
 }
 
 @media (min-width: 1024px) {
   .carousel {
     max-width: min(700px, 70vw);
+    margin: 0 auto 10px;
   }
 
   .carousel_section {
     max-width: 800px;
+    width: 95%;
   }
 }
 
