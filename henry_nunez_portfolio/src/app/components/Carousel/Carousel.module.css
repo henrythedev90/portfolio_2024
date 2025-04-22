@@ -228,6 +228,10 @@
   .carousel {
     max-width: min(500px, 70vw);
     background-color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
   }
   .carousel_section {
     background-color: var(--shade-medium);
