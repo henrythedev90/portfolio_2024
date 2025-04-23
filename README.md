@@ -11,9 +11,9 @@ A modern, responsive portfolio website showcasing my projects, skills, and profe
     <td align="center"><h3>Mobile View</h3></td>
   </tr>
   <tr>
-    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw.png" alt="Desktop View" width="300px"></td>
-    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(1).png" alt="Tablet View" width="300px"></td>
-    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(2).png" alt="Mobile View" width="300px"></td>
+    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw.png" alt="Desktop View" width="300px" height="600px"></td>
+    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(1).png" alt="Tablet View" width="300px" height="600px"></td>
+    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(2).png" alt="Mobile View" width="300px" height="600px"></td>
   </tr>
 </table>
 
