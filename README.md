@@ -8,11 +8,11 @@ A modern, responsive portfolio website showcasing my projects, skills, and profe
 
 ![Desktop View](henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw.png)
 
-### Mobile View
+### Tablet View
 
 ![Mobile View](<henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(1).png>)
 
-### Tablet View
+### Mobile View
 
 ![Tablet View](<henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(2).png>)
 
