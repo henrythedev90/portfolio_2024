@@ -4,20 +4,18 @@ A modern, responsive portfolio website showcasing my projects, skills, and profe
 
 ## 📱 Responsive Design
 
-<div style="display: flex; flex-direction: row; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
-  <div style="text-align: center;">
-    <h3>Desktop View</h3>
-    <img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw.png" alt="Desktop View" width="300px">
-  </div>
-  <div style="text-align: center;">
-    <h3>Tablet View</h3>
-    <img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(1).png" alt="Tablet View" width="300px">
-  </div>
-  <div style="text-align: center;">
-    <h3>Mobile View</h3>
-    <img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(2).png" alt="Mobile View" width="300px">
-  </div>
-</div>
+<table>
+  <tr>
+    <td align="center"><h3>Desktop View</h3></td>
+    <td align="center"><h3>Tablet View</h3></td>
+    <td align="center"><h3>Mobile View</h3></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw.png" alt="Desktop View" width="300px"></td>
+    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(1).png" alt="Tablet View" width="300px"></td>
+    <td align="center"><img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw%20(2).png" alt="Mobile View" width="300px"></td>
+  </tr>
+</table>
 
 ## 🌐 Live Demo
 
