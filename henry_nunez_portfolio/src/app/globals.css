@@ -76,3 +76,116 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Loading container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background);
+  transition: background-color 0.3s ease;
+  color: var(--accent);
+}
+
+.loading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: inherit;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Theme-specific loading screens - Fallbacks in case CSS variables don't load */
+html[data-theme="light"] .loading-container,
+body[data-theme="light"] .loading-container,
+.loading-theme-light {
+  background-color: white;
+  color: #fc4c02;
+}
+
+html[data-theme="dark"] .loading-container,
+body[data-theme="dark"] .loading-container,
+.loading-theme-dark {
+  background-color: #121212;
+  color: #ff69b4;
+}
+
+html[data-theme="blue"] .loading-container,
+body[data-theme="blue"] .loading-container,
+.loading-theme-blue {
+  background-color: #001f3f;
+  color: #7fdbff;
+}
+
+html[data-theme="green"] .loading-container,
+body[data-theme="green"] .loading-container,
+.loading-theme-green {
+  background-color: #3d9970;
+  color: #01ff70;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Direct HTML element theme classes for early rendering before hydration */
+html.theme-light {
+  --background: white;
+  --text-primary: #1a1a1a;
+  --text-secondary: #b0b0b0;
+  --accent: #fc4c02;
+  --shade-dark: #333333;
+  --shade-medium: #666666;
+  --shade-light: #f2f2f2;
+  --shade-soft: #ff7e32;
+  background-color: white;
+  color: #1a1a1a;
+}
+
+html.theme-dark {
+  --background: #121212;
+  --text-primary: white;
+  --text-secondary: #b0b0b0;
+  --accent: #ff69b4;
+  --shade-dark: #2f2f2f;
+  --shade-medium: #6c757d;
+  --shade-light: #d3d3d3;
+  --shade-soft: #ffc0cb;
+  background-color: #121212;
+  color: white;
+}
+
+html.theme-blue {
+  --background: #001f3f;
+  --text-primary: #ffffff;
+  --text-secondary: #0074d9;
+  --accent: #7fdbff;
+  --shade-dark: #008080;
+  --shade-medium: #000080;
+  --shade-soft: #7df9ff;
+  --shade-light: #4682b4;
+  background-color: #001f3f;
+  color: #ffffff;
+}
+
+html.theme-green {
+  --background: #3d9970;
+  --text-primary: #111;
+  --text-secondary: #2ecc40;
+  --accent: #01ff70;
+  --shade-dark: #808000;
+  --shade-medium: #228b22;
+  --shade-soft: #98ff98;
+  --shade-light: #32cd32;
+  background-color: #3d9970;
+  color: #111;
+}
