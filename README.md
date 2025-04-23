@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and profe
 
 ## 📱 Responsive Design
 
-<div style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
+<div style="display: flex; flex-direction: row; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
   <div style="text-align: center;">
     <h3>Desktop View</h3>
     <img src="henry-nunez.com__fbclid=IwY2xjawJ1JPZleHRuA2FlbQIxMABicmlkETFNaWx2Y2ZXZmRjQkRnYkdnAR568B5sSU5BVl5_KXHzpzgnbihXCJUoTtJks-1UBEG56upE2yFgkudYVFDDHA_aem_15c3Igv-jpbbN-CspxJoqw.png" alt="Desktop View" width="300px">
