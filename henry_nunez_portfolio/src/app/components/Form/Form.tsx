@@ -34,11 +34,19 @@ function Form() {
 
     // Get reCAPTCHA token
     const token = recaptchaRef.current?.getValue();
+    console.log("reCAPTCHA token:", token ? "Token received" : "No token");
+
     if (!token) {
       setError("Please complete the reCAPTCHA verification");
       setIsSubmitting(false);
       return;
     }
+
+    // Debug info
+    console.log("Submitting form with data:", {
+      ...values,
+      recaptchaToken: token ? "Token included" : "No token",
+    });
 
     fetch("/api/mail", {
       method: "POST",

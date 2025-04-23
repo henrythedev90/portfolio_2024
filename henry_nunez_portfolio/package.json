@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sendgrid/mail": "^8.1.4",
+    "@sendgrid/mail": "^8.1.5",
     "@types/react-google-recaptcha": "^2.1.9",
     "axios": "^1.7.9",
     "next": "^15.3.1",
