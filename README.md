@@ -2,8 +2,6 @@
 
 A modern, responsive portfolio website showcasing my projects, skills, and professional journey as a software developer.
 
-![Portfolio Screenshot](screenshot.png)
-
 ## 🌐 Live Demo
 
 Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
