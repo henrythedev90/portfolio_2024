@@ -92,11 +92,11 @@ export async function POST(request: Request) {
       await mail.send(content);
       console.log("Email sent successfully:", { name, email });
       return NextResponse.json({ message: "Email sent successfully" });
-    } catch (emailError: any) {
-      console.error(
-        "SendGrid error:",
-        emailError?.response?.body || emailError
-      );
+    } catch (emailError: unknown) {
+      // Type cast for type safety
+      const error = emailError as { response?: { body?: unknown } };
+
+      console.error("SendGrid error:", error?.response?.body || emailError);
 
       // For development purposes, consider this a success to test the form
       if (process.env.NODE_ENV === "development") {

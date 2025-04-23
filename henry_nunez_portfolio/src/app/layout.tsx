@@ -92,7 +92,7 @@ export default function RootLayout({
       document.documentElement.setAttribute("data-theme", newTheme);
 
       // Set theme in window so it persists
-      (window as any).__theme = newTheme;
+      (window as Window & { __theme?: string }).__theme = newTheme;
     } catch (e) {
       console.error("Error saving theme:", e);
     }
@@ -102,8 +102,8 @@ export default function RootLayout({
   useEffect(() => {
     try {
       // Get theme from localStorage or window.__theme (set by script)
-      const savedTheme =
-        localStorage.getItem("theme") || (window as any).__theme;
+      const customWindow = window as Window & { __theme?: string };
+      const savedTheme = localStorage.getItem("theme") || customWindow.__theme;
 
       // If found in storage or set by script, use it
       if (savedTheme && availableThemes.includes(savedTheme)) {
@@ -127,7 +127,7 @@ export default function RootLayout({
     }
 
     setIsMounted(true);
-  }, []);
+  }, [availableThemes]);
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
