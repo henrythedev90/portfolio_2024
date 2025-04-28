@@ -65,7 +65,7 @@
   border-top: 4px solid var(--text-primary);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px;
   margin-bottom: 1rem;
@@ -73,6 +73,7 @@
 }
 
 .project_card h3 {
+  text-align: center;
   font-size: 2rem;
   font-weight: 800;
   color: var(--shade-soft);
@@ -114,41 +115,22 @@
   margin: 0 20px;
   font-size: 0.95rem;
 }
-
-.project_card_link {
-  text-decoration: none;
-  color: var(--text-primary);
-  font-size: 1rem;
-  border: 4px solid var(--accent);
-  padding: 8px 16px;
-  border-radius: 6px;
-  color: var(--accent);
-  background-color: var(--background);
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.project_card_link:hover {
-  background-color: var(--text-secondary);
-  color: var(--text-primary);
-  transform: translateY(-2px);
-}
-
-.project_card_image {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+.project_card_description img {
   border-radius: 8px;
-  overflow: hidden;
-  margin: 1.5rem 0;
   border: 4px solid var(--accent);
-  max-width: 90%;
+  box-shadow: 0 0 10px 0 var(--text-primary);
 }
 
-.project_card_image img {
-  display: block;
+.project_card_links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-top: 2px solid var(--accent);
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 /* Media queries for responsive design */

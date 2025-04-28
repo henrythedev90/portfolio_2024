@@ -41,8 +41,8 @@ export default function Projects() {
   }, []);
 
   return isMounted ? (
-    <Container>
-      <section className={classes.projects_container}>
+    <section className={classes.projects_container}>
+      <Container>
         <h2 className={classes.title}>
           <span className={classes.title_span}>P</span>rojects
         </h2>
@@ -51,8 +51,8 @@ export default function Projects() {
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   ) : (
     <Loading currentTheme={currentTheme} />
   );
