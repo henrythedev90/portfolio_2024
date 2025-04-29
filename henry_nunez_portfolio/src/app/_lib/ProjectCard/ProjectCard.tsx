@@ -24,6 +24,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
             alt={project.image_alt}
             width={360}
             height={280}
+            className={classes.project_image}
+            style={{
+              width: "100%",
+              height: "auto",
+              maxWidth: "360px",
+              maxHeight: "280px",
+              objectFit: "cover",
+            }}
           />
           <p>{project.description}</p>
         </div>

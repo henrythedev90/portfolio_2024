@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { PROJECTS } from "../components/data/projects";
 import ProjectCard from "../_lib/ProjectCard/ProjectCard";
-import Container from "../components/Container/Container";
 import classes from "../_lib/ProjectCard/style/ProjectCard.module.css";
 import Loading from "../components/Loading/Loading";
 
@@ -41,19 +40,19 @@ export default function Projects() {
   }, []);
 
   return isMounted ? (
-    <section className={classes.projects_container}>
-      <Container>
-        <h2 className={classes.title}>
-          <span className={classes.title_span}>P</span>rojects
-        </h2>
-        <div className={classes.projects_grid}>
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </Container>
-    </section>
+    // <Container>
+    <div className={classes.projects_container}>
+      <h2 className={classes.title}>
+        <span className={classes.title_span}>P</span>rojects
+      </h2>
+      <div className={classes.projects_grid}>
+        {PROJECTS.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </div>
   ) : (
+    // </Container>
     <Loading currentTheme={currentTheme} />
   );
 }

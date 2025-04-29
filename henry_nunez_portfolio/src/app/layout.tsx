@@ -5,6 +5,7 @@ import Header from "./_lib/Header/Header";
 import Footer from "./_lib/Footer/Footer";
 import "./globals.css";
 import Loading from "./components/Loading/Loading";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,6 +15,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// Define available themes as a constant array
+const AVAILABLE_THEMES = ["light", "dark", "blue", "green"];
+type Theme = (typeof AVAILABLE_THEMES)[number];
 
 // The themeScript Inline Script (line 21)
 // This is the key to fixing the theme flicker and persistence issues:
@@ -66,12 +71,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [currentTheme, setCurrentTheme] = useState("light"); // Default as placeholder during SSR
+  const [currentTheme, setCurrentTheme] = useState<Theme>("light");
   const [isMounted, setIsMounted] = useState(false);
-  const availableThemes = ["light", "dark", "blue", "green"];
 
   // Function to handle theme changes
-  const handleSetTheme = (newTheme: string) => {
+  const handleSetTheme = (newTheme: Theme) => {
     // Update state
     setCurrentTheme(newTheme);
 
@@ -81,7 +85,7 @@ export default function RootLayout({
       localStorage.setItem("theme", newTheme);
 
       // Clear all existing theme classes
-      availableThemes.forEach((theme) => {
+      AVAILABLE_THEMES.forEach((theme) => {
         document.documentElement.classList.remove("theme-" + theme);
       });
 
@@ -92,7 +96,7 @@ export default function RootLayout({
       document.documentElement.setAttribute("data-theme", newTheme);
 
       // Set theme in window so it persists
-      (window as Window & { __theme?: string }).__theme = newTheme;
+      (window as Window & { __theme?: Theme }).__theme = newTheme;
     } catch (e) {
       console.error("Error saving theme:", e);
     }
@@ -102,12 +106,12 @@ export default function RootLayout({
   useEffect(() => {
     try {
       // Get theme from localStorage or window.__theme (set by script)
-      const customWindow = window as Window & { __theme?: string };
+      const customWindow = window as Window & { __theme?: Theme };
       const savedTheme = localStorage.getItem("theme") || customWindow.__theme;
 
       // If found in storage or set by script, use it
-      if (savedTheme && availableThemes.includes(savedTheme)) {
-        setCurrentTheme(savedTheme);
+      if (savedTheme && AVAILABLE_THEMES.includes(savedTheme as Theme)) {
+        setCurrentTheme(savedTheme as Theme);
         document.documentElement.setAttribute("data-theme", savedTheme);
         document.documentElement.classList.add("theme-" + savedTheme);
       }
@@ -116,7 +120,7 @@ export default function RootLayout({
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches;
-        const defaultTheme = prefersDark ? "dark" : "light";
+        const defaultTheme: Theme = prefersDark ? "dark" : "light";
         setCurrentTheme(defaultTheme);
         localStorage.setItem("theme", defaultTheme);
         document.documentElement.setAttribute("data-theme", defaultTheme);
@@ -127,7 +131,7 @@ export default function RootLayout({
     }
 
     setIsMounted(true);
-  }, [availableThemes]);
+  }, []);
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
@@ -138,12 +142,14 @@ export default function RootLayout({
         <title>Henry Nuñez</title>
         <link
           rel="stylesheet"
+          as="style"
           type="text/css"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
         <link
           href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
           rel="stylesheet"
+          as="style"
         />
       </head>
       <body
@@ -158,7 +164,7 @@ export default function RootLayout({
             <Footer
               theme={currentTheme}
               setTheme={handleSetTheme}
-              availableThemes={availableThemes}
+              availableThemes={AVAILABLE_THEMES}
             />
           </>
         ) : (

@@ -89,8 +89,8 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
   }
 
   return (
-    <section className={classes.carousel_container}>
-      <Container>
+    <Container>
+      <section className={classes.carousel_container}>
         <div className={classes.carousel_section}>
           <h2 className={classes.carousel_title}>
             <Link href="/projects">
@@ -179,8 +179,8 @@ const Carousel = ({ projects }: { projects: Project[] }) => {
             </div>
           </div>
         </div>
-      </Container>
-    </section>
+      </section>
+    </Container>
   );
 };
 

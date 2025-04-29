@@ -204,25 +204,13 @@
 }
 
 .carousel_button {
-  background-color: var(--accent);
-  color: var(--background);
-  border: 1px solid var(--text-primary);
-  border-radius: 6px;
-  width: clamp(20px, 6vw, 24px);
-  height: clamp(20px, 6vw, 24px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
   font-weight: bold;
   font-size: clamp(0.7rem, 2.5vw, 0.9rem);
   pointer-events: auto;
-}
-
-.carousel_button:hover {
-  opacity: 1;
 }
 
 .carousel_prev {
