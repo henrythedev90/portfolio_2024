@@ -1,0 +1,15 @@
+.blog_single_post_image {
+  max-width: 1184px;
+  max-height: 360px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.blog_single_post_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
