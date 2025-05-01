@@ -65,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@stoiic1190",
-    creator: "@stoiic1190",
+    site: "@stoic1190",
+    creator: "@stoic1190",
     title: "Henry Nuñez | Full Stack Developer",
     description:
       "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
