@@ -8,7 +8,7 @@ export default function Blog() {
       <main className={classes.blog_container}>
         <div className={classes.blog_title}>
           <h2>
-            "<span>B</span>log"
+            &quot;<span>B</span>log&quot;
           </h2>
         </div>
         <BlogContent />
