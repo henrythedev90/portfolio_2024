@@ -20,6 +20,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    justify-self: center;
   }
   .blog_posts_content {
     grid-template-columns: repeat(1, minmax(0px, 1fr));
