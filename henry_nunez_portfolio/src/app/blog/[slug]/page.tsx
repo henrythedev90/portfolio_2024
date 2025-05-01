@@ -5,8 +5,26 @@ import Image from "next/image";
 import classes from "../style/BlogSinglePost.module.css";
 import Link from "next/link";
 
-export function generateStaticParams() {
-  return BLOG_POSTS.posts.map((post) => ({
+// Simulate an API call to fetch blog posts
+async function getBlogPosts() {
+  // In a real app, this would be an actual API call
+  // Example: const response = await fetch('https://api.example.com/posts');
+  // return await response.json();
+
+  // For now, we'll simulate a delay to demonstrate async behavior
+  await new Promise((resolve) => setTimeout(resolve, 100));
+  return BLOG_POSTS.posts;
+}
+
+// Simulate fetching a single post
+async function getBlogPost(slug: string) {
+  const posts = await getBlogPosts();
+  return posts.find((post) => post.slug === slug);
+}
+
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -16,9 +34,8 @@ export default async function BlogPostPage({
 }: {
   params: { slug: string };
 }) {
-  // Simulate async data fetching
-  const posts = await Promise.resolve(BLOG_POSTS.posts);
-  const post = posts.find((post) => post.slug === params.slug);
+  // Fetch the specific post
+  const post = await getBlogPost(params.slug);
 
   if (!post) {
     return (
