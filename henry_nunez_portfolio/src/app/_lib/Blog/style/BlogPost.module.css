@@ -64,3 +64,9 @@
     padding-bottom: 20px;
   }
 }
+
+@media (max-width: 584px) {
+  .blog_post_container p {
+    padding-bottom: 26px;
+  }
+}

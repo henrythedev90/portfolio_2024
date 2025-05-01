@@ -26,3 +26,12 @@
     grid-template-columns: repeat(1, minmax(0px, 1fr));
   }
 }
+
+@media (max-width: 584px) {
+  .blog_posts_section {
+    width: calc(100% - 16px);
+  }
+  .blog_posts_content {
+    gap: 12px;
+  }
+}
