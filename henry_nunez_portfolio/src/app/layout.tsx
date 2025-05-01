@@ -118,7 +118,11 @@ export default function RootLayout({
           property="og:title"
           content="Henry Nuñez | Full Stack Developer"
         />
-        <meta property="og:image" content="/images/Henry_Nunez.png" />
+        <meta
+          property="og:image"
+          content="/images/Henry_Nunez.png"
+          style={{ borderRadius: "50%" }}
+        />
         <meta
           property="og:image:alt"
           content="Henry Nuñez - Software Engineer"
