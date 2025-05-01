@@ -39,7 +39,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-bottom: 28px;
+  padding-bottom: 24px;
 }
 
 .blog_post_container p {
@@ -67,7 +67,7 @@
 
 @media (max-width: 584px) {
   .blog_post_container p {
-    padding-bottom: 26px;
+    padding-bottom: 28px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
