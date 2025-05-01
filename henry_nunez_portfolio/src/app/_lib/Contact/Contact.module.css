@@ -1,5 +1,10 @@
 .contact_section {
   padding: 10px 0px 60px;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .contact_list {
   display: flex;
@@ -38,6 +43,7 @@
   border: 2px solid var(--accent);
   border-radius: 13px;
   padding: 20px;
+  background-color: var(--shade-light);
 }
 @media (min-width: 768px) {
   .contact_container {
