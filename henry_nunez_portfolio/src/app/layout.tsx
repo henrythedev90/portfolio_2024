@@ -123,6 +123,9 @@ export default function RootLayout({
           property="og:image:alt"
           content="Henry Nuñez - Software Engineer"
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@stoiic1190" />
+        <meta name="twitter:creator" content="@stoiic1190" />
         {/* Execute theme script immediately */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link
