@@ -39,7 +39,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-bottom: 24px;
+  padding-bottom: 28px;
 }
 
 .blog_post_container p {
