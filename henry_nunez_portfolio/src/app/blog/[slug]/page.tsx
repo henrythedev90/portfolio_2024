@@ -5,7 +5,7 @@ import Image from "next/image";
 import classes from "../style/BlogSinglePost.module.css";
 import Link from "next/link";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return BLOG_POSTS.posts.map((post) => ({
     slug: post.slug,
   }));
