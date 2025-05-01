@@ -2,7 +2,7 @@ import { BLOG_POSTS } from "@/app/components/data/blogPostList";
 import { CONTACT_LIST } from "@/app/components/data/linkList";
 import Container from "@/app/components/Container/Container";
 import Image from "next/image";
-import classes from "./style/BlogSinglePost.module.css";
+import classes from "../style/BlogSinglePost.module.css";
 import Link from "next/link";
 
 export async function generateStaticParams() {
@@ -11,7 +11,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function BlogPostPage({ params }: PageProps) {
   const post = BLOG_POSTS.posts.find((post) => post.slug === params.slug);
 
   if (!post) {
