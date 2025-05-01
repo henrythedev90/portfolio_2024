@@ -16,9 +16,9 @@ export default async function BlogPostPage({
 }: {
   params: { slug: string };
 }) {
-  const post = await Promise.resolve(
-    BLOG_POSTS.posts.find((post) => post.slug === params.slug)
-  );
+  // Simulate async data fetching
+  const posts = await Promise.resolve(BLOG_POSTS.posts);
+  const post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return (
