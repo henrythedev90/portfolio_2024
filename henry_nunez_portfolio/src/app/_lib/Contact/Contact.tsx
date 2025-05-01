@@ -1,15 +1,15 @@
 import React from "react";
 import Form from "../../components/Form/Form";
-import Container from "../../components/Container/Container";
 import { CONTACT_LIST, CONTACT_INFO } from "../../components/data/linkList";
 import classes from "./Contact.module.css";
 import Link from "next/link";
 import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
+import Container from "@/app/components/Container/Container";
 
 const Contact = () => {
   return (
-    <Container>
-      <section id="contact" className={classes.contact_section}>
+    <section id="contact" className={classes.contact_section}>
+      <Container>
         <div className={classes.contact_container}>
           <div className={classes.contact_info}>
             <SectionSubtitle subTitle="Contact Me!" />
@@ -40,8 +40,8 @@ const Contact = () => {
             <Form />
           </div>
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

@@ -63,10 +63,12 @@
 @media (max-width: 767px) {
   .contact_container {
     display: flex-start;
-
     justify-content: center;
     align-items: center;
     row-gap: 10px;
+  }
+  .contact_section {
+    margin-top: 100px;
   }
   .contact_info {
     width: 100%;
