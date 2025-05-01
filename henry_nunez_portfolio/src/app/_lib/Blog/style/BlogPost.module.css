@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 12px;
   margin-bottom: 30px;
+  padding-bottom: 26px;
 }
 
 .blog_post_container a {
