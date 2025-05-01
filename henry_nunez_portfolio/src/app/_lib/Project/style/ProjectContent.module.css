@@ -1,4 +1,4 @@
-.blog_posts_section {
+.projects_section {
   max-width: 1200px;
   align-self: center;
   width: calc(100% - 32px);
@@ -6,23 +6,22 @@
   flex-direction: column;
 }
 
-.blog_posts_content {
+.projects_content {
   display: grid;
   grid-template-columns: repeat(3, minmax(0px, 1fr));
   column-gap: 32px;
   row-gap: 16px;
   margin-top: 20px;
 }
-
-@media (max-width: 940px) {
-  .blog_posts_section {
+@media (max-width: 990px) {
+  .projects_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     justify-self: center;
   }
-  .blog_posts_content {
+  .projects_content {
     grid-template-columns: repeat(1, minmax(0px, 1fr));
   }
 }

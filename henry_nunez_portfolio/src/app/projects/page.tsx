@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { PROJECTS } from "../components/data/projects";
-import ProjectCard from "../_lib/ProjectCard/ProjectCard";
-import classes from "../_lib/ProjectCard/style/ProjectCard.module.css";
+import ProjectCard from "../_lib/Project/ProjectCard";
+import classes from "../_lib/Project/style/ProjectCard.module.css";
 import Loading from "../components/Loading/Loading";
+import ProjectContent from "../_lib/Project/ProjectContent";
 
 export default function Projects() {
   const [isMounted, setIsMounted] = useState(false);
@@ -47,11 +48,7 @@ export default function Projects() {
           &quot;<span className={classes.title_span}>P</span>rojects&quot;
         </h2>
       </div>
-      <div className={classes.projects_grid}>
-        {PROJECTS.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      <ProjectContent />
     </div>
   ) : (
     // </Container>
