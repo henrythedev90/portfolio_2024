@@ -30,6 +30,7 @@ Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
 - **Modern UI** - Clean, professional design with smooth animations
 - **Accessibility** - Designed with accessibility in mind
 - **Dark Mode** - Support for light/dark preferences
+- **Blog Section** - Tech articles and tutorials with markdown support
 
 ## 🛠️ Technology Stack
 
@@ -99,6 +100,17 @@ Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
 - `/src/app/_lib` - Utility components and functions
 - `/src/app/api` - API routes for backend functionality
 - `/public` - Static assets (images, icons, etc.)
+- `/src/app/blog` - Blog posts and related components
+
+## 📚 Blog Structure
+
+The blog section includes:
+
+- Markdown-based blog posts
+- Syntax highlighting for code snippets
+- Categories and tags for better organization
+- Search functionality
+- Responsive reading experience
 
 ## 🔄 Future Updates
 
