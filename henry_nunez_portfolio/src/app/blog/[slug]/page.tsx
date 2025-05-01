@@ -11,8 +11,14 @@ export function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = BLOG_POSTS.posts.find((post) => post.slug === params.slug);
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await Promise.resolve(
+    BLOG_POSTS.posts.find((post) => post.slug === params.slug)
+  );
 
   if (!post) {
     return (
