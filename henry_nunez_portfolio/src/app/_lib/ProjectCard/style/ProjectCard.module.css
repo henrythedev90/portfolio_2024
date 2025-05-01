@@ -10,12 +10,10 @@
 
 .title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  margin-bottom: 2rem;
-  border-bottom: 4px solid var(--accent);
-  padding-bottom: 4px;
-  color: var(--accent);
+  /* margin-bottom: 2rem; */
+  /* padding-bottom: 10px; */
   letter-spacing: 2px;
 }
 
@@ -129,6 +127,19 @@
   width: 100%;
   padding-top: 10px;
   margin-top: 10px;
+}
+
+.projects_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding-top: 70px;
+  border-bottom: 2px solid var(--accent);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {

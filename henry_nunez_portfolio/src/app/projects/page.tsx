@@ -42,9 +42,11 @@ export default function Projects() {
   return isMounted ? (
     // <Container>
     <div className={classes.projects_container}>
-      <h2 className={classes.title}>
-        <span className={classes.title_span}>P</span>rojects
-      </h2>
+      <div className={classes.projects_title}>
+        <h2 className={classes.title}>
+          &quot;<span className={classes.title_span}>P</span>rojects&quot;
+        </h2>
+      </div>
       <div className={classes.projects_grid}>
         {PROJECTS.map((project) => (
           <ProjectCard key={project.id} project={project} />
