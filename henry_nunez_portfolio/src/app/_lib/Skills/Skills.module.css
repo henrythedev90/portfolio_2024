@@ -163,9 +163,9 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    border: 2px solid var(--accent);
+    /* border: 2px solid var(--accent); */
     border-radius: 13px;
-    background-color: var(--text-secondary);
+    /* background-color: var(--text-secondary); */
   }
   .skills_front_end,
   .skills_back_end,
@@ -199,85 +199,99 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out;
   }
-  .skills_list_mobile_itemopen {
+  .skills_list_mobile_item.open {
     display: block;
     max-height: 500px;
     transition: max-height 0.5s ease-in;
     font-size: 1rem;
-    /* padding: 10px; */
     border-bottom: 2px solid var(--white);
-    overflow-y: auto; /* Changed to vertical scrolling only */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation: swing-in-top-fwd 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      both;
   }
 
-  .toggle_skills {
-    cursor: pointer; /* Changed to pointer for better UX */
-    border-bottom: 2px solid var(--accent);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  @keyframes swing-in-top-fwd {
+    0% {
+      transform: rotateX(-100deg);
+      transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      transform-origin: top;
+      opacity: 1;
+    }
   }
-  .caret_icon {
-    font-size: 1.5rem;
-    margin-left: 10px; /* Adjusted margin for better alignment */
-  }
-  .skills_image_container {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+}
 
-  .skills_image_content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid var(--text-secondary);
-    gap: 10px;
-    margin-bottom: 5px;
-    padding: 5px;
-  }
+.toggle_skills {
+  cursor: pointer; /* Changed to pointer for better UX */
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.caret_icon {
+  font-size: 1.5rem;
+  margin-left: 10px; /* Adjusted margin for better alignment */
+}
+.skills_image_container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .skills_image_icon {
-    font-size: 24px; /* Adjust as needed */
-  }
+.skills_image_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid var(--text-secondary);
+  gap: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
 
-  .skills_image_title {
-    margin: 0;
-    font-size: 16px;
-    text-align: center;
-    text-transform: capitalize;
-    color: var(--text-primary);
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    letter-spacing: 0.12em;
-  }
-  .skills_image_content_image {
-    font-size: 24px;
-    justify-content: center;
-    text-align: center;
-    color: var(--text-primary);
-  }
-  .chevron_arrow_down {
-    display: inline-block;
-    border-right: 4px solid var(--accent);
-    border-bottom: 4px solid var(--accent);
-    width: 10px;
-    height: 10px;
-    transform: rotate(-315deg);
-    margin-right: 20px;
-  }
+.skills_image_icon {
+  font-size: 24px; /* Adjust as needed */
+}
 
-  .chevron_arrow_up {
-    display: inline-block;
-    border-right: 4px solid var(--accent);
-    border-bottom: 4px solid var(--accent);
-    width: 10px;
-    height: 10px;
-    transform: rotate(225deg);
-    margin-right: 20px;
-  }
-  .skills_list_desktop {
-    display: none;
-  }
+.skills_image_title {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--text-primary);
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.12em;
+}
+.skills_image_content_image {
+  font-size: 24px;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-primary);
+}
+.chevron_arrow_down {
+  display: inline-block;
+  border-right: 4px solid var(--accent);
+  border-bottom: 4px solid var(--accent);
+  width: 10px;
+  height: 10px;
+  transform: rotate(-315deg);
+  margin-right: 20px;
+}
+
+.chevron_arrow_up {
+  display: inline-block;
+  border-right: 4px solid var(--accent);
+  border-bottom: 4px solid var(--accent);
+  width: 10px;
+  height: 10px;
+  transform: rotate(225deg);
+  margin-right: 20px;
+}
+.skills_list_desktop {
+  display: none;
 }

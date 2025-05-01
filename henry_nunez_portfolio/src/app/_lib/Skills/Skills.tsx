@@ -153,8 +153,8 @@ const Skills = () => {
               </div>
               {openSkills === skillType.type && (
                 <ul
-                  className={`${classes.skills_list_mobile_item}${
-                    openSkills === skillType.type ? "open" : ""
+                  className={`${classes.skills_list_mobile_item} ${
+                    openSkills === skillType.type ? classes.open : ""
                   }`}
                 >
                   {SKILLS.filter((item) => item.type === skillType.type).map(
