@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { PROJECTS } from "../components/data/projects";
-import ProjectCard from "../_lib/Project/ProjectCard";
 import classes from "../_lib/Project/style/ProjectCard.module.css";
 import Loading from "../components/Loading/Loading";
 import ProjectContent from "../_lib/Project/ProjectContent";
