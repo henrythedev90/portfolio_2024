@@ -51,8 +51,8 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <Container>
-      <div className={classes.blog_single_post_container}>
+    <div className={classes.blog_single_post_container}>
+      <Container>
         <div className={classes.blog_single_post_image}>
           <Image src={post.image} alt={post.title} width={1000} height={1000} />
         </div>
@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <p>{post.content}</p>
           </div>
         </article>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 }
