@@ -5,15 +5,15 @@ import classes from "./style/ProjectContent.module.css";
 
 const ProjectContent = () => {
   return (
-    <Container>
-      <section className={classes.projects_section}>
+    <section className={classes.projects_section}>
+      <Container>
         <div className={classes.projects_content}>
           {PROJECTS.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

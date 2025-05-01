@@ -5,15 +5,15 @@ import classes from "./style/BlogContent.module.css";
 
 const BlogContent = () => {
   return (
-    <Container>
-      <section className={classes.blog_posts_section}>
+    <section className={classes.blog_posts_section}>
+      <Container>
         <div className={classes.blog_posts_content}>
           {BLOG_POSTS.posts.map((post) => (
             <BlogPost key={post.id} params={post} />
           ))}
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 
