@@ -5,7 +5,6 @@ import Header from "./_lib/Header/Header";
 import Footer from "./_lib/Footer/Footer";
 import "./globals.css";
 import Loading from "./components/Loading/Loading";
-import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,97 +19,6 @@ const geistMono = Geist_Mono({
 // Define available themes as a constant array
 const AVAILABLE_THEMES = ["light", "dark", "blue", "green"];
 type Theme = (typeof AVAILABLE_THEMES)[number];
-
-export const metadata: Metadata = {
-  title: {
-    default: "Henry Nuñez | Full Stack Developer",
-    template: "%s | Henry Nuñez",
-  },
-  description:
-    "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
-  keywords: [
-    "Full Stack Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Web Development",
-    "Portfolio",
-  ],
-  authors: [{ name: "Henry Nuñez" }],
-  creator: "Henry Nuñez",
-  publisher: "Henry Nuñez",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://www.henry-nunez.com"), // Replace with your actual domain
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://www.henry-nunez.com", // Replace with your actual domain
-    title: "Henry Nuñez | Full Stack Developer",
-    description:
-      "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
-    siteName: "Henry Nuñez Portfolio",
-    images: [
-      {
-        url: "/images/Henry_Nunez.png", // Add your OpenGraph image
-        width: 1200,
-        height: 630,
-        alt: "Henry Nuñez Portfolio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Henry Nuñez | Full Stack Developer",
-    description:
-      "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
-    images: ["/images/Henry_Nunez.png"], // Add your Twitter image
-    creator: "@stoiic1190", // Replace with your Twitter handle
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "k87w8aKkeETMQlSCvLBFTE7rMWMUbSBtDcYR-rWvQ-4", // Add your Google verification code
-  },
-};
-
-// The themeScript Inline Script (line 21)
-// This is the key to fixing the theme flicker and persistence issues:
-// Runs Before Anything Else: This is an inline script that executes before your React app even loads
-// Immediately Sets Theme: It reads the theme from localStorage and applies it to the HTML element
-// Prevents "Flash of Wrong Theme": By setting the theme before rendering, users never see the wrong theme, even for a split second
-// Why This Approach Works
-// The biggest challenge with themes in Next.js is timing:
-// Standard React Approaches Don't Work Well:
-// React's hooks run after rendering, causing a flash of the default theme
-// Server-side rendering doesn't have access to user preferences
-// Our Solution Uses Multiple Layers:
-// The inline script sets the theme via classes and attributes before any content renders
-// We also store theme in a global window variable as backup
-// The React state syncs with this when it loads
-// CSS is set up with multiple selector types to ensure theme applies correctly
-// Redundant Theme Storage:
-// Theme is stored in localStorage
-// Also in window.__theme (as backup)
-// In React state (currentTheme)
-// As HTML attributes (data-theme)
-// As CSS classes (theme-dark, etc.)
-// This multi-layered approach ensures your theme persists across refreshes and renders correctly during every stage of the page lifecycle.
 
 // Define theme script as a string to execute before page loads
 const themeScript = `
@@ -207,8 +115,6 @@ export default function RootLayout({
       <head>
         {/* Execute theme script immediately */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-
-        <title>Henry Nuñez</title>
         <link
           rel="stylesheet"
           as="style"
