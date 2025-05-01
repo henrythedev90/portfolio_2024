@@ -5,13 +5,13 @@ import Image from "next/image";
 import classes from "./style/BlogSinglePost.module.css";
 import Link from "next/link";
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
+  return BLOG_POSTS.posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = BLOG_POSTS.find((post) => post.slug === params.slug);
+  const post = BLOG_POSTS.posts.find((post) => post.slug === params.slug);
   return (
     <Container>
       <div className={classes.blog_single_post_container}>

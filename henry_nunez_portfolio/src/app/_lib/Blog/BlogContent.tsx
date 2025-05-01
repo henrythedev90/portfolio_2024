@@ -8,8 +8,8 @@ const BlogContent = () => {
     <Container>
       <section className={classes.blog_posts_section}>
         <div className={classes.blog_posts_content}>
-          {BLOG_POSTS.map((post) => (
-            <BlogPost key={post.id} {...post} />
+          {BLOG_POSTS.posts.map((post) => (
+            <BlogPost key={post.id} params={post} />
           ))}
         </div>
       </section>

@@ -2,30 +2,16 @@ import React from "react";
 import Image from "next/image";
 import classes from "./style/BlogPost.module.css";
 import Link from "next/link";
-interface BlogPostPropsContent {
-  id: number;
-  title: string;
-  image: string;
-  type: string;
-  content: string;
-  slug: string;
-}
+import { BlogPost as BlogPostType } from "../../components/data/blogPostList";
 
-const BlogPost = ({
-  id,
-  image,
-  title,
-  type,
-  content,
-  slug,
-}: BlogPostPropsContent) => {
+const BlogPost = ({ params }: { params: BlogPostType }) => {
   return (
-    <div key={id} className={classes.blog_post_container}>
-      <Link href={`/blog/${slug}`}>
-        <Image src={image} alt={title} width={368} height={252} />
-        <span>{type}</span>
-        <h3>{title}</h3>
-        <p>{content}</p>
+    <div key={params.id} className={classes.blog_post_container}>
+      <Link href={`/blog/${params.slug}`}>
+        <Image src={params.image} alt={params.title} width={368} height={252} />
+        <span>{params.type}</span>
+        <h3>{params.title}</h3>
+        <p>{params.content}</p>
       </Link>
     </div>
   );
