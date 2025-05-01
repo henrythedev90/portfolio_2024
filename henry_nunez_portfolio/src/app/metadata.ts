@@ -46,11 +46,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@stoiic1190",
+    creator: "@stoiic1190",
     title: "Henry Nuñez | Full Stack Developer",
     description:
       "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
-    images: ["/images/Henry_Nunez.png"],
-    creator: "@stoiic1190",
+    images: {
+      url: "/images/Henry_Nunez.png",
+      alt: "Henry Nuñez - Software Engineer",
+    },
   },
   robots: {
     index: true,
