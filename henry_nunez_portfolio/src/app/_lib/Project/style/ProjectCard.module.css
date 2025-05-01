@@ -85,14 +85,15 @@
 
 .project_card_technologies p {
   border-radius: 6px;
-  border: 4px solid var(--shade-soft);
-  padding: 2px 6px;
-  background-color: var(--background);
-  color: var(--text-primary);
-  font-size: 0.9rem;
+  border: 2px solid var(--shade-medium);
+  padding: 2px;
+  background-color: var(--text-primary);
+  color: var(--background);
+  font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-shadow: 2px 2px 0 0 var(--accent), 2px 2px 0 2px var(--text-primary);
 }
 
 .project_card_links {
