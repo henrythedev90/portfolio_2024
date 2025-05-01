@@ -1,122 +1,72 @@
-export const BLOG_POST_LIST = [
+export interface BlogPost {
+  id: number;
+  title: string;
+  content: string;
+  image: string;
+  type: string;
+  slug: string;
+  date: string;
+}
+
+export const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
-    title: "Blog Post 1",
-    slug: "blog-post-1",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
+    title: "Building a Modern Portfolio with Next.js and TypeScript",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "In this comprehensive guide, we'll explore how to create a stunning portfolio website using Next.js and TypeScript. From setting up the project structure to implementing responsive design, we'll cover everything you need to know. Learn about the benefits of static site generation, how to optimize images, and implement smooth animations that will make your portfolio stand out.",
+    image: "/images/pexels-alleksana-4271927.png",
+    type: "Tutorial",
+    slug: "building-modern-portfolio-nextjs-typescript",
+    date: "2024-03-15",
   },
   {
     id: 2,
-    title: "Blog Post 2",
-    slug: "blog-post-2",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
+    title: "The Power of CSS Grid: Creating Complex Layouts Made Simple",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "CSS Grid has revolutionized web layout design. In this article, we'll dive deep into how to create complex, responsive layouts with minimal code. Discover practical examples of grid-based designs, learn about grid template areas, and understand how to combine Grid with Flexbox for powerful layout solutions. Perfect for both beginners and experienced developers.",
+    image: "/images/pexels-alleksana-4271927.png",
+    type: "CSS",
+    slug: "power-css-grid-complex-layouts",
+    date: "2024-02-14",
   },
   {
     id: 3,
-    title: "Blog Post 3",
-    slug: "blog-post-3",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
+    title: "State Management in React: Choosing the Right Solution",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "With so many state management options available in React, how do you choose the right one? We'll compare Redux, Context API, Zustand, and other popular solutions. Learn about their strengths, weaknesses, and ideal use cases. Plus, get practical examples of implementing each solution in real-world applications.",
+    image: "/images/pexels-alleksana-4271927.png",
+    type: "React",
+    slug: "state-management-react-choosing-solution",
+    date: "2024-11-01",
   },
   {
     id: 4,
-    title: "Blog Post 4",
-    slug: "blog-post-4",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
+    title: "Building Accessible Web Applications: A Developer's Guide",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "Web accessibility is crucial for creating inclusive digital experiences. This guide covers essential accessibility practices, from semantic HTML to ARIA attributes. Learn how to make your applications usable by everyone, including people with disabilities. We'll also explore tools and techniques for testing accessibility.",
+    image: "/images/pexels-alleksana-4271927.png",
+    type: "Accessibility",
+    slug: "building-accessible-web-applications",
+    date: "2024-10-01",
   },
   {
     id: 5,
-    title: "Blog Post 5",
-    slug: "blog-post-5",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
+    title: "Optimizing Performance in Next.js Applications",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "Performance is key to user experience and SEO. In this article, we'll explore various techniques to optimize Next.js applications. From image optimization to code splitting, learn how to make your applications faster and more efficient. We'll also cover performance monitoring and debugging tools.",
+    image: "/images/pexels-alleksana-4271927.png",
+    type: "Performance",
+    slug: "optimizing-performance-nextjs",
+    date: "2024-08-24",
   },
   {
     id: 6,
-    title: "Blog Post 6",
-    slug: "blog-post-6",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
+    title: "TypeScript Best Practices for React Developers",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-  },
-  {
-    id: 7,
-    title: "Blog Post 7",
-    slug: "blog-post-7",
+      "TypeScript can significantly improve your React development experience. This guide covers essential TypeScript patterns and best practices for React development. Learn about proper type definitions, generics, and how to avoid common pitfalls. Perfect for developers looking to enhance their type safety.",
     image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-  },
-  {
-    id: 8,
-    title: "Blog Post 8",
-    slug: "blog-post-8",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-  },
-  {
-    id: 9,
-    title: "Blog Post 9",
-    slug: "blog-post-9",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-  },
-  {
-    id: 10,
-    title: "Blog Post 10",
-    slug: "blog-post-10",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-  },
-  {
-    id: 11,
-    title: "Blog Post 11",
-    slug: "blog-post-11",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-  },
-  {
-    id: 12,
-    title: "Blog Post 12",
-    slug: "blog-post-12",
-    image: "/images/pexels-alleksana-4271927.png",
-    type: "Type",
-    date: "2021-01-01",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    type: "TypeScript",
+    slug: "typescript-best-practices-react",
+    date: "2024-07-15",
   },
 ];
