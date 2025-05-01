@@ -29,13 +29,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
+  // Resolve the params promise
+  const resolvedParams = await params;
+
   // Fetch the specific post
-  const post = await getBlogPost(params.slug);
+  const post = await getBlogPost(resolvedParams.slug);
 
   if (!post) {
     return (
