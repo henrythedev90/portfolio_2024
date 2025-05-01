@@ -98,3 +98,10 @@
     line-height: 26px;
   }
 }
+
+@media (max-width: 584px) {
+  .blog_single_post_article {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
