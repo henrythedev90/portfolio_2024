@@ -67,6 +67,9 @@
 
 @media (max-width: 584px) {
   .blog_post_container p {
-    padding-bottom: 30px;
+    padding-bottom: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
   }
 }
