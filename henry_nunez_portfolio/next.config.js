@@ -1,8 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   async redirects() {
     return [
+      // Redirect non-www to www (both HTTP and HTTPS)
       {
         source: "/:path*",
         has: [
@@ -14,19 +14,20 @@ const nextConfig: NextConfig = {
         destination: "https://www.henry-nunez.com/:path*",
         permanent: true,
       },
+      // Redirect HTTP www to HTTPS www
       {
         source: "/:path*",
         has: [
           {
             type: "host",
-            value: "http://www.henry-nunez.com",
+            value: "www.henry-nunez.com",
           },
         ],
-        destination: "https://www.henry-nunez.com/:path*",
         permanent: true,
+        destination: "https://www.henry-nunez.com/:path*",
       },
     ];
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
