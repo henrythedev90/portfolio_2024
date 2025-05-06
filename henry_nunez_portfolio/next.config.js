@@ -12,7 +12,7 @@ const nextConfig = {
           },
         ],
         destination: "https://www.henry-nunez.com/:path*",
-        permanent: true,
+        permanent: false,
       },
     ];
   },
