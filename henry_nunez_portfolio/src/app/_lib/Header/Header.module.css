@@ -50,6 +50,17 @@
 .nav_menu a:hover {
   color: var(--text-secondary);
 }
+.nav_menu a:focus {
+  color: var(--accent);
+  outline: none;
+}
+
+.nav_menu a:focus-visible {
+  color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .mobile_menu i {
   font-size: 1.3rem;
   color: var(--text-primary);

@@ -18,8 +18,15 @@
 .footer_menu a:hover {
   color: var(--accent);
 }
-.footer_menu a:first-child {
+.footer_menu a:focus {
   color: var(--accent);
+  outline: none;
+}
+
+.footer_menu a:focus-visible {
+  color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 .footer_creator h6 {
   text-align: right;
