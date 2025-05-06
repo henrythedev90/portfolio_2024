@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow static assets and utility files
+Disallow: /_next/static/
+Disallow: /favicon.ico
+Disallow: *.woff2
+
+# Allow sitemap
+Sitemap: https://www.henry-nunez.com/sitemap.xml 
