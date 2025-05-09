@@ -1,22 +1,22 @@
 export const SKILLS: { icon: string; title: string; type: string }[] = [
   {
     icon: "javascript-plain",
-    title: "javascript",
+    title: "javaScript",
     type: "Front_End",
   },
   {
     icon: "typescript-plain",
-    title: "typescript",
+    title: "typeScript",
     type: "Front_End",
   },
   {
     icon: "css3-plain",
-    title: "css3",
+    title: "CSS3",
     type: "Front_End",
   },
   {
     icon: "sass-original",
-    title: "sass",
+    title: "SASS",
     type: "Front_End",
   },
   {
@@ -46,7 +46,7 @@ export const SKILLS: { icon: string; title: string; type: string }[] = [
   },
   {
     icon: "postgresql-plain",
-    title: "postgresql",
+    title: "PostgreSQL",
     type: "Back_End",
   },
   {
@@ -56,47 +56,47 @@ export const SKILLS: { icon: string; title: string; type: string }[] = [
   },
   {
     icon: "jest-plain",
-    title: "jest",
+    title: "Jest",
     type: "Testing",
   },
   {
     icon: "html5-plain",
-    title: "html5",
+    title: "HTML5",
     type: "Front_End",
   },
   {
     icon: "vscode-plain",
-    title: "vscode",
+    title: "VSCode",
     type: "Tools",
   },
   {
     icon: "python-plain",
-    title: "python",
+    title: "Python",
     type: "Back_End",
   },
   {
     icon: "figma-plain",
-    title: "figma",
+    title: "Figma",
     type: "Tools",
   },
   {
     icon: "jira-plain",
-    title: "jira",
+    title: "Jira",
     type: "Tools",
   },
   {
     icon: "bitbucket-original",
-    title: "bitbucket",
+    title: "Bitbucket",
     type: "Tools",
   },
   {
     icon: "docker-plain",
-    title: "docker",
+    title: "Docker",
     type: "Back_End",
   },
   {
     icon: "mongodb-plain-wordmark",
-    title: "mongodb",
+    title: "MongoDB",
     type: "Back_End",
   },
 ];

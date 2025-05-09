@@ -63,9 +63,9 @@
     height: auto; /* Changed from fixed height to auto for better responsiveness */
     display: flex;
     flex-direction: column; /* Added to stack items vertically */
-    border: 2px solid var(--accent);
+
     border-radius: 10px;
-    background-color: var(--shade-medium);
+
     padding: 10px; /* Added padding for better spacing */
   }
   .carousel_wrapper {
@@ -102,7 +102,7 @@
     margin: 0;
     height: auto; /* Changed from fixed height to auto for better responsiveness */
     padding: 10px;
-    border: 2px solid var(--accent);
+    border: 4px solid var(--shade-dark);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -111,7 +111,7 @@
     font-weight: bold;
     text-rendering: optimizeLegibility;
     color: var(--text-primary);
-    background-color: var(--background);
+    background-color: var(--shade-soft);
     letter-spacing: 0.06em;
     font-size: 2rem;
   }
@@ -143,7 +143,7 @@
     padding: 10px;
     overflow-y: auto;
     background-color: var(--background);
-    border: 2px solid var(--accent);
+    border: 2px solid var(--shade-dark);
     border-radius: 10px;
   }
 }

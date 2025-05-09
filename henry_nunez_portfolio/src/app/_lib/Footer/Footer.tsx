@@ -5,11 +5,11 @@ import { NAV_LINK } from "../../components/data/navLinks";
 import classes from "./Footer.module.css";
 import Link from "next/link";
 
-type FooterProps = {
+interface FooterProps {
   theme: string;
   setTheme: (theme: string) => void;
   availableThemes: string[];
-};
+}
 
 const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
   const date = new Date();
@@ -51,57 +51,36 @@ const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
             style={{
               position: isVisible ? "relative" : "fixed",
               bottom: isVisible ? "auto" : "50px",
-              width: isVisible ? "auto" : "fit-content", // Prevents full-width issue
+              width: isVisible ? "auto" : "fit-content",
               display: "flex",
-              left: isVisible ? "auto" : "0px", // Ensures it stays at the leftmost edge
+              flexDirection: isVisible ? "row" : "column",
+              left: isVisible ? "auto" : "0px",
               rowGap: isVisible ? undefined : "10px",
-              marginLeft: isVisible ? "0" : "10px", // Adds slight spacing from the left edge
+              marginLeft: isVisible ? "0" : "10px",
+              alignItems: "center",
+              opacity: isVisible ? 1 : 0.8,
             }}
           >
             {isVisible ? <span>Theme:</span> : null}
-
-            <div
-              style={{
-                flexDirection: isVisible ? "row" : "column",
-                opacity: isVisible ? "1" : "0.75",
-              }}
+            <label
+              className={`${classes.switch} ${
+                isVisible ? classes.visible : ""
+              }`}
             >
-              {availableThemes.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => {
-                    setTheme(t);
-                  }}
-                  className={classes.theme_single_button}
-                  style={{
-                    border:
-                      theme === t
-                        ? "1px solid var(--accent)"
-                        : "1px solid var(--text-primary)",
-                    borderRadius:
-                      theme === t
-                        ? isVisible
-                          ? "8px 25px"
-                          : "50%"
-                        : isVisible
-                        ? "25px 8px"
-                        : "50%",
-                    marginBottom: "10px", // Add some spacing between buttons
-                  }}
-                >
-                  {isVisible
-                    ? t.charAt(0).toUpperCase() + t.slice(1)
-                    : t.charAt(0).toUpperCase()}
-                </button>
-              ))}
-            </div>
+              <input
+                type="checkbox"
+                checked={theme === "dark"}
+                onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+              />
+              <span className={classes.slider}></span>
+            </label>
           </div>
           <div className={`${classes.footer_creator}`}>
             <h6>Created by Henry Nuñez</h6>
           </div>
           <div className={`${classes.footer_copyright}`}>
             <p>
-              &copy; Copyright {year} Developed by Henry Nuñez. All right
+              &copy; Copyright {year} Developed by Henry Nuñez. All rights
               reserved.{" "}
             </p>
           </div>

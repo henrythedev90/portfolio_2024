@@ -12,7 +12,12 @@ const Contact = () => {
       <Container>
         <div className={classes.contact_container}>
           <div className={classes.contact_info}>
-            <SectionSubtitle subTitle="Contact Me!" />
+            {/* <SectionSubtitle subTitle="Contact Me!" /> */}
+            <div className={classes.contact_info_title}>
+              <h2>
+                <span>C</span>ontact <span>M</span>e!
+              </h2>
+            </div>
             <ul className={classes.contact_list}>
               {CONTACT_INFO.map((i, index) => (
                 <li key={index} className={classes.contact_list_item}>

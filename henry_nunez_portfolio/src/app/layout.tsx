@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 // Define available themes as a constant array
-const AVAILABLE_THEMES = ["light", "dark", "blue", "green"];
+const AVAILABLE_THEMES = ["light", "dark"];
 type Theme = (typeof AVAILABLE_THEMES)[number];
 
 // Define theme script as a string to execute before page loads

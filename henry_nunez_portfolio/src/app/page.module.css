@@ -1,44 +1,22 @@
 :root {
-  --background: white;
+  --background: #ffffff;
   --text-primary: #1a1a1a;
-  --text-secondary: #b0b0b0;
-  --accent: #fc4c02;
-  --shade-dark: #333333; /* A darker, bold neutral */
-  --shade-medium: #666666; /* A mid-tone neutral gray */
-  --shade-light: #f2f2f2; /* A very light gray/near white */
-  --shade-soft: #ff7e32;
+  --text-secondary: #4a4a4a;
+  --accent: #0066cc; /* Deeper blue for better contrast */
+  --shade-dark: #004080; /* Darker blue for better contrast */
+  --shade-medium: #0077cc; /* Medium blue for better visibility */
+  --shade-soft: #b4dbff; /* Very light blue for subtle accents */
+  --shade-light: #d3e7fd; /* Lightest blue for backgrounds */
 }
 [data-theme="dark"] {
-  --background: #121212;
-  --text-primary: white;
-  --text-secondary: #b0b0b0;
-  --accent: #ff69b4;
-  --shade-dark: #2f2f2f; /* A darker neutral shade */
-  --shade-medium: #6c757d; /* A muted gray */
-  --shade-light: #d3d3d3; /* A lighter neutral */
-  --shade-soft: #ffc0cb;
-}
-
-[data-theme="blue"] {
-  --background: #001f3f;
+  --background: #4a4f57;
   --text-primary: #ffffff;
-  --text-secondary: #0074d9;
-  --accent: #7fdbff;
-  --shade-dark: #008080;
-  --shade-medium: #000080;
-  --shade-soft: #7df9ff;
-  --shade-light: #4682b4;
-}
-
-[data-theme="green"] {
-  --background: #3d9970;
-  --text-primary: #111;
-  --text-secondary: #2ecc40;
-  --accent: #01ff70;
-  --shade-dark: #808000;
-  --shade-medium: #228b22;
-  --shade-soft: #98ff98;
-  --shade-light: #32cd32;
+  --text-secondary: #e0e0e0;
+  --accent: #4dabff; /* Brighter blue for dark mode */
+  --shade-dark: #003366; /* Darker blue for dark mode */
+  --shade-medium: #0066cc; /* Medium blue for dark mode */
+  --shade-soft: #406b90; /* Soft blue for dark mode */
+  --shade-light: #0d1f33; /* Light blue for dark mode */
 }
 
 .title {

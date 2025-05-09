@@ -43,7 +43,7 @@ export default function Projects() {
     <div className={classes.projects_container}>
       <div className={classes.projects_title}>
         <h2 className={classes.title}>
-          &quot;<span className={classes.title_span}>P</span>rojects&quot;
+          <span className={classes.title_span}>P</span>rojects
         </h2>
       </div>
       <ProjectContent />
@@ -53,3 +53,13 @@ export default function Projects() {
     <Loading currentTheme={currentTheme} />
   );
 }
+
+// className={classes.projects_title}
+// style={{
+//   backgroundImage: 'url("/images/wireframe.png")',
+//   backgroundSize: 'contain',
+//   backgroundRepeat: 'no-repeat',
+//   backgroundPosition: 'center',
+//   width: '100%',
+//   height: '100px'
+// }}
