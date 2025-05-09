@@ -8,10 +8,9 @@ import Link from "next/link";
 interface FooterProps {
   theme: string;
   setTheme: (theme: string) => void;
-  availableThemes: string[];
 }
 
-const Footer = ({ theme, setTheme, availableThemes }: FooterProps) => {
+const Footer = ({ theme, setTheme }: FooterProps) => {
   const date = new Date();
   const year = date.getFullYear();
   const footerRef = useRef<HTMLDivElement | null>(null);

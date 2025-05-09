@@ -3,7 +3,6 @@ import Form from "../../components/Form/Form";
 import { CONTACT_LIST, CONTACT_INFO } from "../../components/data/linkList";
 import classes from "./Contact.module.css";
 import Link from "next/link";
-import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
 import Container from "@/app/components/Container/Container";
 
 const Contact = () => {

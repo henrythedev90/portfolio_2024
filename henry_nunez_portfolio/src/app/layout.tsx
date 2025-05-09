@@ -154,11 +154,7 @@ export default function RootLayout({
           <>
             <Header />
             <main>{children}</main>
-            <Footer
-              theme={currentTheme}
-              setTheme={handleSetTheme}
-              availableThemes={AVAILABLE_THEMES}
-            />
+            <Footer theme={currentTheme} setTheme={handleSetTheme} />
           </>
         ) : (
           <Loading currentTheme={currentTheme} />
