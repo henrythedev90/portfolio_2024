@@ -49,11 +49,12 @@ const Hero = () => {
                 text="Resume"
                 variant="primary"
                 onClick={() => {
-                  window.open(
-                    "/papers/Henry_Nunez_Resume.pdf",
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
+                  const link = document.createElement("a");
+                  link.href = "/papers/Henry_Nunez_Resume.docx.pdf";
+                  link.download = "Henry_Nunez_Resume.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
                 }}
               />
             </div>
