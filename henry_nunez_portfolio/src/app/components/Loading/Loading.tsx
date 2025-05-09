@@ -21,13 +21,13 @@ const Loading = () => {
       const allImages = [...new Set([...imageUrls, ...additionalImages])];
 
       const loadImage = (url: string): Promise<void> => {
-        return new Promise((resolve, reject) => {
+        return new Promise((Resolve) => {
           const img = new Image();
           img.onload = () => {
-            resolve();
+            Resolve();
           };
           img.onerror = () => {
-            resolve(); // Resolve even on error to continue loading
+            Resolve(); // Resolve even on error to continue loading
           };
           img.src = url;
         });
