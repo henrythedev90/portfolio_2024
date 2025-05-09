@@ -12,6 +12,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  will-change: opacity;
 }
 
 .loading.active {
@@ -24,6 +25,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  will-change: transform;
 }
 
 .loading_text {
@@ -31,6 +33,7 @@
   font-weight: 500;
   color: var(--accent);
   animation: pulse 1.5s infinite ease-in-out;
+  will-change: opacity;
 }
 
 @keyframes pulse {
@@ -42,5 +45,36 @@
   }
   100% {
     opacity: 0.6;
+  }
+}
+
+/* Simple Loader */
+.simpleLoader {
+  width: 80px;
+  height: 70px;
+  border: 5px solid var(--text-primary);
+  padding: 0 8px;
+  box-sizing: border-box;
+  background: linear-gradient(var(--accent) 0 0) 0 0/8px 20px,
+    linear-gradient(var(--accent) 0 0) 100% 0/8px 20px,
+    radial-gradient(farthest-side, var(--accent) 90%, #0000) 0 5px/8px 8px
+      content-box,
+    var(--background);
+  background-repeat: no-repeat;
+  animation: l3 2s infinite linear;
+  will-change: background-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@keyframes l3 {
+  25% {
+    background-position: 0 0, 100% 100%, 100% calc(100% - 5px);
+  }
+  50% {
+    background-position: 0 100%, 100% 100%, 0 calc(100% - 5px);
+  }
+  75% {
+    background-position: 0 100%, 100% 0, 100% 5px;
   }
 }

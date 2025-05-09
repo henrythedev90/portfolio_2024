@@ -160,7 +160,7 @@ export default function RootLayout({
             <Footer theme={currentTheme} setTheme={handleSetTheme} />
           </>
         ) : (
-          <Loading currentTheme={currentTheme} />
+          <Loading />
         )}
       </body>
     </html>

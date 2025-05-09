@@ -51,7 +51,7 @@ export default function Projects() {
       </div>
     </Container>
   ) : (
-    <Loading currentTheme={currentTheme} />
+    <Loading />
   );
 }
 
