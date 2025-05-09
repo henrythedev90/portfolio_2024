@@ -5,6 +5,7 @@ import Header from "./_lib/Header/Header";
 import Footer from "./_lib/Footer/Footer";
 import "./globals.css";
 import Loading from "./components/Loading/Loading";
+import PageTransition from "./components/PageTransition/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -153,7 +154,9 @@ export default function RootLayout({
         {isMounted ? (
           <>
             <Header />
-            <main>{children}</main>
+            <PageTransition>
+              <main>{children}</main>
+            </PageTransition>
             <Footer theme={currentTheme} setTheme={handleSetTheme} />
           </>
         ) : (
