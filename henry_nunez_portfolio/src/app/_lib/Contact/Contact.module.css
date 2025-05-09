@@ -54,10 +54,10 @@
   color: var(--text-primary);
 }
 .contact_container {
-  border: 2px solid var(--accent);
+  border: 4px solid var(--text-primary);
   border-radius: 13px;
   padding: 20px;
-  background-color: var(--shade-light);
+  background-color: var(--shade-soft);
 }
 @media (min-width: 768px) {
   .contact_container {
