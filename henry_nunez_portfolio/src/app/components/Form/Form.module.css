@@ -32,6 +32,9 @@
 }
 
 /* Form group specific styles */
+.form_group input {
+  text-transform: uppercase;
+}
 .form_group input,
 .form_group textarea {
   padding: 10px 0;
@@ -39,7 +42,6 @@
   border: none;
   border-bottom: 4px solid var(--shade-dark);
   font-size: 14px;
-  text-transform: uppercase;
   transition: border-color 0.2s;
 }
 
