@@ -2,13 +2,13 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "Henry Nuñez | Full Stack Developer",
+    default: "Henry Nuñez | Full Web Stack Developer",
     template: "%s | Henry Nuñez",
   },
   description:
-    "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
+    "Full Web Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
   keywords: [
-    "Full Stack Developer",
+    "Full Web Stack Developer",
     "React",
     "Next.js",
     "TypeScript",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.henry-nunez.com",
-    title: "Henry Nuñez | Full Stack Developer",
+    title: "Henry Nuñez | Full Web Stack Developer",
     description:
-      "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
+      "Full Web Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
     siteName: "Henry Nuñez Portfolio",
     images: [
       {
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@stoic1190",
     creator: "@stoic1190",
-    title: "Henry Nuñez | Full Stack Developer",
+    title: "Henry Nuñez | Full Web Stack Developer",
     description:
-      "Full Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
+      "Full Web Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
     images: {
       url: "/images/profile_image.png",
       alt: "Henry Nuñez - Software Engineer",
