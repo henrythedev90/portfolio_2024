@@ -135,6 +135,23 @@ export default function RootLayout({
           href="/images/profile_images_in_svg.svg"
         />
         <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/profile_image.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/images/profile_image.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/profile_image.png"
+        />
+        <link
           rel="stylesheet"
           as="style"
           type="text/css"
