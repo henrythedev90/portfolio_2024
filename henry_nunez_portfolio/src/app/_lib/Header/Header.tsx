@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Container from "../../components/Container/Container";
 import classes from "./Header.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINK } from "../../components/data/navLinks";
 
 const Header = () => {
@@ -37,6 +38,12 @@ const Header = () => {
           {/** potential logo will go here */}
           <div className={classes.logo}>
             <Link href={"/"}>
+              <Image
+                src="/images/profile_image.png"
+                alt="Henry Nuñez"
+                width={70}
+                height={70}
+              />
               <h1>
                 <span>H</span>enry
               </h1>
@@ -55,6 +62,12 @@ const Header = () => {
               ))}
               <div className={`${classes.mobile_logo}`}>
                 <Link href={"/"}>
+                  <Image
+                    src="/images/profile_image.png"
+                    alt="Henry Nuñez"
+                    width={70}
+                    height={70}
+                  />
                   <h1 className={classes.mobile_logo_title}>
                     <span>H</span>enry
                   </h1>
