@@ -114,12 +114,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
-        <title>Henry Nuñez | Full Stack Developer</title>
+        <title>Henry Nuñez | Full Web Stack Developer</title>
         <meta
           property="og:title"
-          content="Henry Nuñez | Full Stack Developer"
+          content="Henry Nuñez | Full Web Stack Developer"
         />
-        <meta property="og:image" content="/images/Henry_Nunez.png" />
+        <meta property="og:image" content="/images/profile_image.png" />
         <meta
           property="og:image:alt"
           content="Henry Nuñez - Software Engineer"
