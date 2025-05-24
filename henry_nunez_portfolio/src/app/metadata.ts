@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Henry Nuñez Portfolio",
     images: [
       {
-        url: "/images/profile_image.png",
+        url: "https://www.henry-nunez.com/images/profile_image.png",
         width: 1200,
         height: 630,
         alt: "Henry Nuñez Portfolio",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     description:
       "Full Web Stack Developer specializing in React, Next.js, and TypeScript. Building modern web applications with a focus on performance and user experience.",
     images: {
-      url: "/images/profile_image.png",
+      url: "https://www.henry-nunez.com/images/profile_image.png",
       alt: "Henry Nuñez - Software Engineer",
     },
   },
