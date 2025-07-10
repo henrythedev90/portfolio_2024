@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "./_lib/Header/Header";
 import Footer from "./_lib/Footer/Footer";
 import "./globals.css";
@@ -173,6 +174,7 @@ export default function RootLayout({
             <Header />
             <PageTransition>
               <main>{children}</main>
+              <Analytics />
             </PageTransition>
             <Footer theme={currentTheme} setTheme={handleSetTheme} />
           </>
