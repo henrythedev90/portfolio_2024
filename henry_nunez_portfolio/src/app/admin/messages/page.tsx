@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import classes from "./messages.module.css";
 import type { Message } from "../../../types/message";
 import type { Analytics } from "../../../types/analytics";
+import Modal from "@/app/components/Modal/Modal";
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -265,19 +266,17 @@ export default function MessagesPage() {
             ))
           )}
         </div>
+      </div>
 
-        {/* Message Detail */}
+      {/* Message Detail Modal */}
+      <Modal
+        isOpen={!!selectedMessage}
+        onClose={() => setSelectedMessage(null)}
+        title={selectedMessage?.name}
+        size="large"
+      >
         {selectedMessage && (
           <div className={classes.messageDetail}>
-            <div className={classes.detailHeader}>
-              <h2>{selectedMessage.name}</h2>
-              <button
-                onClick={() => setSelectedMessage(null)}
-                className={classes.closeButton}
-              >
-                ×
-              </button>
-            </div>
             <div className={classes.detailContent}>
               <div className={classes.detailRow}>
                 <strong>Email:</strong>
@@ -381,7 +380,7 @@ export default function MessagesPage() {
             </div>
           </div>
         )}
-      </div>
+      </Modal>
     </div>
   );
 }
