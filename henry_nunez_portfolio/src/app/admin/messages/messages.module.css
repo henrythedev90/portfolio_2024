@@ -96,6 +96,10 @@
   gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color, #e0e0e0);
+  padding-bottom: 20px;
 }
 
 .filterGroup {
@@ -509,4 +513,3 @@
     max-height: none;
   }
 }
-

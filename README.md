@@ -26,7 +26,8 @@ Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
 - **Dynamic Theming** - Multiple color themes with persistent user preferences
 - **Project Showcase** - Interactive carousel displaying featured projects
 - **Responsive Design** - Optimized for all devices from mobile to desktop
-- **Contact Form** - Secure form with reCAPTCHA protection
+- **Contact Form** - Secure form with reCAPTCHA protection and database storage
+- **Admin Dashboard** - Professional admin panel for managing messages and analytics
 - **Modern UI** - Clean, professional design with smooth animations
 - **Accessibility** - Designed with accessibility in mind
 - **Dark Mode** - Support for light/dark preferences
@@ -45,8 +46,9 @@ Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
 ### Backend
 
 - **API Routes**: Next.js App Router API endpoints
-- **Email Service**: SendGrid for contact form submissions
+- **Database**: MongoDB for message storage and analytics
 - **Security**: Google reCAPTCHA for form protection
+- **Admin Panel**: Password-protected admin dashboard for managing messages
 
 ### Development & Deployment
 
@@ -82,8 +84,12 @@ Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
    ```
    NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
    RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
-   SENDGRID_API_KEY=your_sendgrid_api_key
+   MONGODB_URI=your_mongodb_connection_string
+   MONGODB_DB_NAME=portfolio
+   ADMIN_PASSWORD=your_secure_admin_password
    ```
+
+   **Note**: Get your MongoDB connection string from [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or use a local MongoDB instance.
 
 4. Start the development server
 
@@ -99,8 +105,45 @@ Visit my portfolio: [henry-nunez.com](https://www.henry-nunez.com)
 - `/src/app/components` - Reusable React components
 - `/src/app/_lib` - Utility components and functions
 - `/src/app/api` - API routes for backend functionality
+- `/src/app/admin` - Admin dashboard pages (password-protected)
+- `/src/app/lib` - Database connection utilities
 - `/public` - Static assets (images, icons, etc.)
 - `/src/app/blog` - Blog posts and related components
+
+## 🔐 Admin Panel
+
+The portfolio includes a professional admin dashboard for managing contact form messages:
+
+### Accessing the Admin Panel
+
+1. Navigate to `/admin/login` (or `/admin` which redirects to messages)
+2. Enter your admin password (set in `ADMIN_PASSWORD` environment variable)
+3. Access the messages dashboard at `/admin/messages`
+
+### Admin Features
+
+- **Message Management**: View, filter, and organize all contact form submissions
+- **Read/Unread Status**: Mark messages as read or unread
+- **Archive**: Archive messages to keep your inbox clean
+- **Starred/Priority**: Mark important messages with stars
+- **Project Tags**: Tag messages by project type (Web Development, Mobile App, etc.)
+- **Contacted Status**: Track which messages you've responded to
+- **Analytics Dashboard**: 
+  - Device type breakdown (mobile vs desktop)
+  - Resume download statistics
+  - Message trends over time
+- **Email Copy**: Quick copy-to-clipboard for email addresses
+- **CSV Export**: Export all messages to CSV for external analysis
+
+### Setting Up Admin Access
+
+The admin panel uses cookie-based authentication. Set a strong password in your `.env.local` file:
+
+```
+ADMIN_PASSWORD=your_secure_password_here
+```
+
+**Security Note**: In production, consider using a more robust authentication system or environment-specific passwords.
 
 ## 📚 Blog Structure
 
