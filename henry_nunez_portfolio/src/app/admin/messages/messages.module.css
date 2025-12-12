@@ -1,6 +1,10 @@
 .messagesPage {
   max-width: 1400px;
   margin: 0 auto;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .header {
@@ -8,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  flex-shrink: 0;
 }
 
 .header h1 {
@@ -36,6 +41,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+  flex-shrink: 0;
 }
 
 .analyticsCard {
@@ -100,6 +106,7 @@
   align-items: center;
   border-bottom: 2px solid var(--border-color, #e0e0e0);
   padding-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .filterGroup {
@@ -126,17 +133,40 @@
 
 .messagesContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  overflow: scroll;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .messagesList {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  max-height: calc(100vh - 300px);
+  height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+  align-content: start;
+}
+
+/* Custom scrollbar for messages list */
+.messagesList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messagesList::-webkit-scrollbar-track {
+  background: var(--scrollbar-track, #f1f1f1);
+  border-radius: 4px;
+}
+
+.messagesList::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, #888);
+  border-radius: 4px;
+}
+
+.messagesList::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover, #555);
 }
 
 .messageCard {
@@ -244,10 +274,9 @@
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 2rem;
-  max-height: calc(100vh - 100px);
+  height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .detailHeader {
@@ -396,6 +425,7 @@
   padding: 3rem;
   color: var(--text-color, #999);
   font-size: 1.1rem;
+  grid-column: span 3;
 }
 
 .loading {
@@ -504,13 +534,32 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .messagesPage {
+    height: calc(100vh - 80px);
+  }
+
   .messagesContainer {
     grid-template-columns: 1fr;
   }
 
+  .messagesList {
+    grid-template-columns: 1fr;
+  }
+
   .messageDetail {
-    position: relative;
-    top: 0;
-    max-height: none;
+    height: auto;
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .messagesList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .messagesList {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
