@@ -201,12 +201,14 @@ function Form() {
           </div>
         ) : null}
 
-        <Button
-          text={isSubmitting ? "Submitting..." : "Let's get started!"}
-          type={"submit"}
-          variant="secondary"
-          disabled={isSubmitting}
-        />
+        <div className={classes.buttonContainer}>
+          <Button
+            text={isSubmitting ? "Submitting..." : "Let's get started!"}
+            type={"submit"}
+            variant="secondary"
+            disabled={isSubmitting}
+          />
+        </div>
       </form>
     </div>
   );

@@ -207,6 +207,13 @@
   justify-content: center;
 }
 
+/* Button container */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
 @media (max-width: 480px) {
   .form_title {
     font-size: 1.5rem;
