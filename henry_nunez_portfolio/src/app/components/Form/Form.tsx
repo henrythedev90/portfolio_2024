@@ -83,7 +83,9 @@ function Form() {
       })
       .catch((error) => {
         console.error("Error:", error);
-        setError(error.message || "Failed to send message. Please try again.");
+        setError(
+          error.message || "Failed to submit message. Please try again."
+        );
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -145,12 +147,12 @@ function Form() {
 
       {submitted ? (
         <div className={`${classes.success}`}>
-          <p>Thank You! Message was sent!</p>
+          <p>Thank You! Your message has been received!</p>
         </div>
       ) : null}
 
       <Button
-        text={isSubmitting ? "Sending..." : "Send"}
+        text={isSubmitting ? "Submitting..." : "Send"}
         type={"submit"}
         variant="secondary"
         disabled={isSubmitting}
