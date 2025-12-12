@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import classes from "./messages.module.css";
 import type { Message } from "../../../types/message";
 import type { Analytics } from "../../../types/analytics";
+import Modal from "@/app/components/Modal/Modal";
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -45,26 +46,6 @@ export default function MessagesPage() {
     fetchMessages();
     fetchAnalytics();
   }, [fetchMessages, fetchAnalytics]);
-
-  // Close modal on ESC key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && selectedMessage) {
-        setSelectedMessage(null);
-      }
-    };
-
-    if (selectedMessage) {
-      document.addEventListener("keydown", handleEscape);
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedMessage]);
 
   const updateMessage = async (
     messageId: string,
@@ -288,132 +269,118 @@ export default function MessagesPage() {
       </div>
 
       {/* Message Detail Modal */}
-      {selectedMessage && (
-        <div
-          className={classes.modalOverlay}
-          onClick={() => setSelectedMessage(null)}
-        >
-          <div
-            className={classes.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className={classes.messageDetail}>
-              <div className={classes.detailHeader}>
-                <h2>{selectedMessage.name}</h2>
+      <Modal
+        isOpen={!!selectedMessage}
+        onClose={() => setSelectedMessage(null)}
+        title={selectedMessage?.name}
+        size="large"
+      >
+        {selectedMessage && (
+          <div className={classes.messageDetail}>
+            <div className={classes.detailContent}>
+              <div className={classes.detailRow}>
+                <strong>Email:</strong>
+                <span>
+                  {selectedMessage.email}
+                  <button
+                    onClick={() => copyEmail(selectedMessage.email)}
+                    className={classes.copyButton}
+                  >
+                    Copy
+                  </button>
+                </span>
+              </div>
+              <div className={classes.detailRow}>
+                <strong>Date:</strong>
+                <span>
+                  {new Date(selectedMessage.createdAt).toLocaleString()}
+                </span>
+              </div>
+              <div className={classes.detailRow}>
+                <strong>Device:</strong>
+                <span>{selectedMessage.deviceType}</span>
+              </div>
+              <div className={classes.detailRow}>
+                <strong>Message:</strong>
+                <p className={classes.messageText}>{selectedMessage.message}</p>
+              </div>
+
+              <div className={classes.detailActions}>
                 <button
-                  onClick={() => setSelectedMessage(null)}
-                  className={classes.closeButton}
+                  onClick={() =>
+                    updateMessage(selectedMessage._id, {
+                      isRead: !selectedMessage.isRead,
+                    })
+                  }
+                  className={`${classes.actionButton} ${
+                    selectedMessage.isRead ? classes.read : ""
+                  }`}
                 >
-                  ×
+                  {selectedMessage.isRead ? "Mark as Unread" : "Mark as Read"}
+                </button>
+                <button
+                  onClick={() =>
+                    updateMessage(selectedMessage._id, {
+                      isArchived: !selectedMessage.isArchived,
+                    })
+                  }
+                  className={`${classes.actionButton} ${
+                    selectedMessage.isArchived ? classes.archived : ""
+                  }`}
+                >
+                  {selectedMessage.isArchived ? "Unarchive" : "Archive"}
+                </button>
+                <button
+                  onClick={() =>
+                    updateMessage(selectedMessage._id, {
+                      isStarred: !selectedMessage.isStarred,
+                    })
+                  }
+                  className={`${classes.actionButton} ${
+                    selectedMessage.isStarred ? classes.starred : ""
+                  }`}
+                >
+                  {selectedMessage.isStarred ? "Unstar" : "Star"}
+                </button>
+                <button
+                  onClick={() =>
+                    updateMessage(selectedMessage._id, {
+                      isContacted: !selectedMessage.isContacted,
+                    })
+                  }
+                  className={`${classes.actionButton} ${
+                    selectedMessage.isContacted ? classes.contacted : ""
+                  }`}
+                >
+                  {selectedMessage.isContacted
+                    ? "Mark as Not Contacted"
+                    : "Mark as Contacted"}
                 </button>
               </div>
-              <div className={classes.detailContent}>
-                <div className={classes.detailRow}>
-                  <strong>Email:</strong>
-                  <span>
-                    {selectedMessage.email}
-                    <button
-                      onClick={() => copyEmail(selectedMessage.email)}
-                      className={classes.copyButton}
-                    >
-                      Copy
-                    </button>
-                  </span>
-                </div>
-                <div className={classes.detailRow}>
-                  <strong>Date:</strong>
-                  <span>
-                    {new Date(selectedMessage.createdAt).toLocaleString()}
-                  </span>
-                </div>
-                <div className={classes.detailRow}>
-                  <strong>Device:</strong>
-                  <span>{selectedMessage.deviceType}</span>
-                </div>
-                <div className={classes.detailRow}>
-                  <strong>Message:</strong>
-                  <p className={classes.messageText}>
-                    {selectedMessage.message}
-                  </p>
-                </div>
 
-                <div className={classes.detailActions}>
-                  <button
-                    onClick={() =>
-                      updateMessage(selectedMessage._id, {
-                        isRead: !selectedMessage.isRead,
-                      })
-                    }
-                    className={`${classes.actionButton} ${
-                      selectedMessage.isRead ? classes.read : ""
-                    }`}
-                  >
-                    {selectedMessage.isRead ? "Mark as Unread" : "Mark as Read"}
-                  </button>
-                  <button
-                    onClick={() =>
-                      updateMessage(selectedMessage._id, {
-                        isArchived: !selectedMessage.isArchived,
-                      })
-                    }
-                    className={`${classes.actionButton} ${
-                      selectedMessage.isArchived ? classes.archived : ""
-                    }`}
-                  >
-                    {selectedMessage.isArchived ? "Unarchive" : "Archive"}
-                  </button>
-                  <button
-                    onClick={() =>
-                      updateMessage(selectedMessage._id, {
-                        isStarred: !selectedMessage.isStarred,
-                      })
-                    }
-                    className={`${classes.actionButton} ${
-                      selectedMessage.isStarred ? classes.starred : ""
-                    }`}
-                  >
-                    {selectedMessage.isStarred ? "Unstar" : "Star"}
-                  </button>
-                  <button
-                    onClick={() =>
-                      updateMessage(selectedMessage._id, {
-                        isContacted: !selectedMessage.isContacted,
-                      })
-                    }
-                    className={`${classes.actionButton} ${
-                      selectedMessage.isContacted ? classes.contacted : ""
-                    }`}
-                  >
-                    {selectedMessage.isContacted
-                      ? "Mark as Not Contacted"
-                      : "Mark as Contacted"}
-                  </button>
-                </div>
-
-                <div className={classes.tagSection}>
-                  <label>Project Tag:</label>
-                  <select
-                    value={selectedMessage.projectTag || ""}
-                    onChange={(e) =>
-                      updateMessage(selectedMessage._id, {
-                        projectTag: e.target.value || null,
-                      })
-                    }
-                    className={classes.select}
-                  >
-                    <option value="">None</option>
-                    {projectTags.map((tag) => (
-                      <option key={tag} value={tag}>
-                        {tag}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div className={classes.tagSection}>
+                <label>Project Tag:</label>
+                <select
+                  value={selectedMessage.projectTag || ""}
+                  onChange={(e) =>
+                    updateMessage(selectedMessage._id, {
+                      projectTag: e.target.value || null,
+                    })
+                  }
+                  className={classes.select}
+                >
+                  <option value="">None</option>
+                  {projectTags.map((tag) => (
+                    <option key={tag} value={tag}>
+                      {tag}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </Modal>
     </div>
   );
 }
