@@ -38,22 +38,22 @@
 
 .analytics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  gap: 1.35rem;
+  margin-bottom: 1.8rem;
   flex-shrink: 0;
 }
 
 .analyticsCard {
   background: var(--card-background, #ffffff);
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 1.35rem;
+  border-radius: 7px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .analyticsCard h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 0.9rem 0;
+  font-size: 0.99rem;
   color: var(--text-color, #666);
   font-weight: 600;
 }
@@ -61,8 +61,8 @@
 .deviceStats {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.45rem;
+  margin-bottom: 0.9rem;
 }
 
 .deviceStats > div {
@@ -72,29 +72,30 @@
 
 .statLabel {
   color: var(--text-color, #666);
+  font-size: 0.9rem;
 }
 
 .statValue {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-color, #0070f3);
   display: block;
-  margin: 0.5rem 0;
+  margin: 0.45rem 0;
 }
 
 .subStat {
-  font-size: 0.9rem;
+  font-size: 0.81rem;
   color: var(--text-color, #999);
-  margin: 0.5rem 0 0 0;
+  margin: 0.45rem 0 0 0;
 }
 
 .insight {
-  margin: 1rem 0 0 0;
-  padding: 0.75rem;
+  margin: 0.9rem 0 0 0;
+  padding: 0.675rem;
   background: var(--info-background, #e3f2fd);
   border-radius: 4px;
   color: var(--info-color, #1976d2);
-  font-size: 0.9rem;
+  font-size: 0.81rem;
 }
 
 .filters {
