@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { getDb } from "@/app/lib/db";
 
@@ -10,7 +10,7 @@ async function checkAuth() {
   }
 }
 
-export async function GET(_request: NextRequest) {
+export async function GET() {
   try {
     await checkAuth();
 
