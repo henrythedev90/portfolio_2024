@@ -116,10 +116,10 @@ function Form() {
     <div className={classes.form_wrapper}>
       <div className={classes.form_header}>
         <h2 className={classes.form_title}>
-          Got ideas? I`&apos;`ve got the skills. Let`&apos;`s team up!
+          Got ideas? I&apos;ve got the skills. Let&apos;s team up!
         </h2>
         <p className={classes.form_instructions}>
-          Tell me more about yourself and what you`&apos;`ve got in mind.
+          Tell me more about yourself and what you&apos;ve got in mind.
         </p>
       </div>
       <form
