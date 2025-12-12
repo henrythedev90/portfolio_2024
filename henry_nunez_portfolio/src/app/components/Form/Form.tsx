@@ -116,10 +116,10 @@ function Form() {
     <div className={classes.form_wrapper}>
       <div className={classes.form_header}>
         <h2 className={classes.form_title}>
-          Got ideas? We've got the skills. Let's team up.
+          Got ideas? I've got the skills. Let's team up!
         </h2>
         <p className={classes.form_instructions}>
-          Tell us more about yourself and what you've got in mind.
+          Tell me more about yourself and what you've got in mind.
         </p>
       </div>
       <form
@@ -165,7 +165,7 @@ function Form() {
         </div>
 
         <div className={classes.services_section}>
-          <label className={classes.services_label}>How can we help?</label>
+          <label className={classes.services_label}>How can I help?</label>
           <div className={classes.services_grid}>
             {SERVICES.map((service) => (
               <label key={service} className={classes.service_checkbox}>
