@@ -86,7 +86,10 @@ export default function MessagesPage() {
       a.download = `messages-${new Date().toISOString().split("T")[0]}.csv`;
       document.body.appendChild(a);
       a.click();
-      document.body.removeChild(a);
+      // Safety check before removing
+      if (a.parentNode) {
+        document.body.removeChild(a);
+      }
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error exporting CSV:", error);

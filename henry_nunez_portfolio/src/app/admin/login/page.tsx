@@ -58,12 +58,21 @@ export default function AdminLogin() {
             />
           </div>
           {error && <div className={classes.error}>{error}</div>}
-          <Button
-            text={isLoading ? "Logging in..." : "Login"}
-            type="submit"
-            variant="primary"
-            disabled={isLoading}
-          />
+          <div className={classes.buttonGroup}>
+            <Button
+              text={isLoading ? "Logging in..." : "Login"}
+              type="submit"
+              variant="primary"
+              disabled={isLoading}
+            />
+            <Button
+              text="Go to Home"
+              type="button"
+              variant="secondary"
+              disabled={isLoading}
+              onClick={() => router.push("/")}
+            />
+          </div>
         </form>
       </div>
     </div>
