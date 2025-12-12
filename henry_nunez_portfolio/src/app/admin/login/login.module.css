@@ -1,0 +1,102 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--background-color, #f5f5f5);
+}
+
+.loginCard {
+  background: var(--card-background, #ffffff);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-color, #333);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: var(--text-color, #333);
+  font-size: 0.9rem;
+}
+
+.formGroup input {
+  padding: 0.75rem;
+  border: 2px solid var(--border-color, #ddd);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: var(--input-background, #fff);
+  color: var(--text-color, #333);
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--primary-color, #0070f3);
+}
+
+.formGroup input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  background: #fee;
+  color: #c33;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border: 1px solid #fcc;
+}
+
+[data-theme="dark"] .loginContainer {
+  background: var(--background-color, #1a1a1a);
+}
+
+[data-theme="dark"] .loginCard {
+  background: var(--card-background, #2a2a2a);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .title {
+  color: var(--text-color, #fff);
+}
+
+[data-theme="dark"] .formGroup label {
+  color: var(--text-color, #fff);
+}
+
+[data-theme="dark"] .formGroup input {
+  border-color: var(--border-color, #444);
+  background: var(--input-background, #333);
+  color: var(--text-color, #fff);
+}
+
+[data-theme="dark"] .error {
+  background: #3a1a1a;
+  color: #ff6b6b;
+  border-color: #5a2a2a;
+}
+

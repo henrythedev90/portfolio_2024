@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "./_lib/Header/Header";
@@ -52,6 +53,10 @@ export default function RootLayout({
 }>) {
   const [currentTheme, setCurrentTheme] = useState<Theme>("light");
   const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
+
+  // Check if we're on an admin route
+  const isAdminRoute = pathname?.startsWith("/admin");
 
   // Function to handle theme changes
   const handleSetTheme = (newTheme: Theme) => {
@@ -171,12 +176,14 @@ export default function RootLayout({
       >
         {isMounted ? (
           <>
-            <Header />
+            {!isAdminRoute && <Header />}
             <PageTransition>
               <main>{children}</main>
               <Analytics />
             </PageTransition>
-            <Footer theme={currentTheme} setTheme={handleSetTheme} />
+            {!isAdminRoute && (
+              <Footer theme={currentTheme} setTheme={handleSetTheme} />
+            )}
           </>
         ) : (
           <Loading />

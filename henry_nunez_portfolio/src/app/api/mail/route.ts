@@ -1,17 +1,34 @@
-import { NextResponse } from "next/server";
-import mail from "@sendgrid/mail";
+import { NextRequest, NextResponse } from "next/server";
+import { getDb } from "@/app/lib/db";
 
-// Set SendGrid API key if available
-if (process.env.SENDGRID_API_KEY) {
-  mail.setApiKey(process.env.SENDGRID_API_KEY);
-} else {
-  console.warn("SENDGRID_API_KEY not found in environment variables");
+// Helper function to detect device type from user agent
+function getDeviceType(
+  userAgent: string | null
+): "mobile" | "desktop" | "tablet" | "unknown" {
+  if (!userAgent) return "unknown";
+  const ua = userAgent.toLowerCase();
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, message, recaptchaToken } = body;
+
+    // Get request metadata for analytics
+    const userAgent = request.headers.get("user-agent");
+    const referer = request.headers.get("referer");
+    const deviceType = getDeviceType(userAgent);
 
     // Basic input validation
     if (!name || !email || !message) {
@@ -70,120 +87,38 @@ export async function POST(request: Request) {
       }
     }
 
-    // Prepare email content
-    const content = {
-      to: "henrythedev90@gmail.com",
-      from: "henrythedev90@gmail.com", // This must be a verified sender in SendGrid
-      subject: `Portfolio Contact: Message from ${name}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>New Contact Form Message</title>
-          <style>
-            body { 
-              font-family: Arial, sans-serif; 
-              line-height: 1.6; 
-              color: #333333;
-              max-width: 600px;
-              margin: 0 auto;
-              padding: 20px;
-            }
-            .header { 
-              background-color: #fc4c02;
-              color: white;
-              padding: 20px;
-              text-align: center;
-              border-radius: 5px 5px 0 0;
-            }
-            .content {
-              padding: 20px;
-              border: 1px solid #dddddd;
-              border-top: none;
-              border-radius: 0 0 5px 5px;
-            }
-            .message {
-              background-color: #f9f9f9;
-              border-left: 4px solid #fc4c02;
-              padding: 15px;
-              margin: 20px 0;
-            }
-            .footer {
-              margin-top: 30px;
-              font-size: 12px;
-              color: #666666;
-              text-align: center;
-              border-top: 1px solid #eeeeee;
-              padding-top: 20px;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="header">
-            <h1>New Contact Form Message</h1>
-          </div>
-          <div class="content">
-            <p>You have received a new message from your portfolio website contact form.</p>
-            
-            <h2>Contact Details</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            
-            <h2>Message</h2>
-            <div class="message">
-              ${message.replace(/\n/g, "<br>")}
-            </div>
-            
-            <p>You can reply directly to this email to respond to ${name}.</p>
-          </div>
-          
-          <div class="footer">
-            <p>This message was sent from the contact form on <a href="https://henry-nunez.com">henry-nunez.com</a> on ${new Date().toLocaleString()}</p>
-            <p>© ${new Date().getFullYear()} Henry Nuñez Portfolio. All rights reserved.</p>
-          </div>
-        </body>
-        </html>
-      `,
-      text: `
-        NEW CONTACT FORM MESSAGE
-        
-        From: ${name}
-        Email: ${email}
-        
-        Message:
-        ${message}
-        
-        Sent from henry-nunez.com contact form on ${new Date().toLocaleString()}
-      `,
-      replyTo: email,
-    };
-
-    // Try to send email
+    // Save to MongoDB database
     try {
-      await mail.send(content);
-      console.log("Email sent successfully:", { name, email });
-      return NextResponse.json({ message: "Email sent successfully" });
-    } catch (emailError: unknown) {
-      // Type cast for type safety
-      const error = emailError as { response?: { body?: unknown } };
+      const db = await getDb();
+      const messagesCollection = db.collection("messages");
 
-      console.error("SendGrid error:", error?.response?.body || emailError);
+      const messageDoc = {
+        name,
+        email,
+        message,
+        deviceType,
+        userAgent: userAgent || "unknown",
+        referer: referer || "unknown",
+        createdAt: new Date(),
+        isRead: false,
+        isArchived: false,
+        isStarred: false,
+        isContacted: false,
+        projectTag: null as string | null,
+      };
 
-      // For development purposes, consider this a success to test the form
-      if (process.env.NODE_ENV === "development") {
-        console.log("[DEV MODE] Email would have been sent:", content);
-        return NextResponse.json(
-          {
-            message: "Development mode - email not actually sent",
-            emailContent: content,
-          },
-          { status: 200 }
-        );
-      }
+      const result = await messagesCollection.insertOne(messageDoc);
+      console.log("Message saved to database:", result.insertedId);
 
-      throw new Error("Failed to send email");
+      return NextResponse.json({
+        message: "Message received and saved successfully",
+      });
+    } catch (dbError) {
+      console.error("Error saving to database:", dbError);
+      return NextResponse.json(
+        { error: "Failed to save message. Please try again." },
+        { status: 500 }
+      );
     }
   } catch (error) {
     console.error("Form submission error:", error);

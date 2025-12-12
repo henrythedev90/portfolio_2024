@@ -1,0 +1,120 @@
+.adminContainer {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background-color, #f5f5f5);
+}
+
+.sidebar {
+  width: 250px;
+  background: var(--card-background, #ffffff);
+  border-right: 1px solid var(--border-color, #e0e0e0);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.sidebarHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.sidebarHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color, #333);
+}
+
+.nav {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.navLink {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-color, #666);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.navLink:hover {
+  background: var(--hover-background, #f5f5f5);
+  color: var(--primary-color, #0070f3);
+}
+
+.navLink.active {
+  background: var(--hover-background, #f5f5f5);
+  color: var(--primary-color, #0070f3);
+  border-left-color: var(--primary-color, #0070f3);
+  font-weight: 600;
+}
+
+.sidebarFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color, #e0e0e0);
+}
+
+.logoutButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--error-color, #dc3545);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.logoutButton:hover {
+  background: var(--error-color-hover, #c82333);
+}
+
+.mainContent {
+  margin-left: 250px;
+  flex: 1;
+  padding: 2rem;
+  width: calc(100% - 250px);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  color: var(--text-color, #666);
+}
+
+[data-theme="dark"] .adminContainer {
+  background: var(--background-color, #1a1a1a);
+}
+
+[data-theme="dark"] .sidebar {
+  background: var(--card-background, #2a2a2a);
+  border-right-color: var(--border-color, #444);
+}
+
+[data-theme="dark"] .sidebarHeader {
+  border-bottom-color: var(--border-color, #444);
+}
+
+[data-theme="dark"] .sidebarHeader h2 {
+  color: var(--text-color, #fff);
+}
+
+[data-theme="dark"] .navLink {
+  color: var(--text-color, #ccc);
+}
+
+[data-theme="dark"] .navLink:hover {
+  background: var(--hover-background, #333);
+}
+
+[data-theme="dark"] .sidebarFooter {
+  border-top-color: var(--border-color, #444);
+}
