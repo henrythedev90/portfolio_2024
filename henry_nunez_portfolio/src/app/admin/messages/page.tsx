@@ -304,6 +304,19 @@ export default function MessagesPage() {
                 <strong>Message:</strong>
                 <p className={classes.messageText}>{selectedMessage.message}</p>
               </div>
+              {selectedMessage.services &&
+                selectedMessage.services.length > 0 && (
+                  <div className={classes.detailRow}>
+                    <strong>Services:</strong>
+                    <div className={classes.servicesList}>
+                      {selectedMessage.services.map((service, index) => (
+                        <span key={index} className={classes.serviceTag}>
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
               <div className={classes.detailActions}>
                 <button

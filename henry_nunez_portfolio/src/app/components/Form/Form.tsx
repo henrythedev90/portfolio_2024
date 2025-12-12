@@ -4,6 +4,15 @@ import classes from "./Form.module.css";
 import Button from "../Button/Button";
 import ReCAPTCHA from "react-google-recaptcha";
 
+const SERVICES = [
+  "Website design",
+  "UX design",
+  "User research",
+  "Content creation",
+  "Strategy & consulting",
+  "Other",
+];
+
 function Form() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -13,12 +22,21 @@ function Form() {
     email: "",
     message: "",
   });
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleChanges = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handleServiceToggle = (service: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(service)
+        ? prev.filter((s) => s !== service)
+        : [...prev, service]
+    );
   };
 
   const removeSuccess = () => {
@@ -55,6 +73,7 @@ function Form() {
       },
       body: JSON.stringify({
         ...values,
+        services: selectedServices,
         recaptchaToken: token,
       }),
     })
@@ -78,6 +97,7 @@ function Form() {
           email: "",
           message: "",
         });
+        setSelectedServices([]);
         // Reset reCAPTCHA
         recaptchaRef.current?.reset();
       })
@@ -93,71 +113,102 @@ function Form() {
   }
 
   return (
-    <form className={`${classes.form}`} method="post" onSubmit={handleOnSubmit}>
-      <div className={`${classes.form_group}`}>
-        <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          onChange={handleChanges}
-          value={values.name}
-          required
-          autoComplete="given-name"
-          disabled={isSubmitting}
-        />
+    <div className={classes.form_wrapper}>
+      <div className={classes.form_header}>
+        <h2 className={classes.form_title}>
+          Got ideas? We've got the skills. Let's team up.
+        </h2>
+        <p className={classes.form_instructions}>
+          Tell us more about yourself and what you've got in mind.
+        </p>
       </div>
-      <div className={`${classes.form_group}`}>
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          onChange={handleChanges}
-          value={values.email}
-          required
-          autoComplete="off"
-          disabled={isSubmitting}
-        />
-      </div>
-      <div className={`${classes.form_group}`}>
-        <textarea
-          rows={5}
-          placeholder="Message"
-          name="message"
-          onChange={handleChanges}
-          value={values.message}
-          autoComplete="off"
-          required
-          disabled={isSubmitting}
-        />
-      </div>
-
-      <div className={classes.recaptcha_container}>
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-          size="normal"
-        />
-      </div>
-
-      {error && (
-        <div className={`${classes.error}`}>
-          <p>{error}</p>
+      <form
+        className={`${classes.form}`}
+        method="post"
+        onSubmit={handleOnSubmit}
+      >
+        <div className={`${classes.form_group}`}>
+          <input
+            type="text"
+            placeholder="Your name"
+            name="name"
+            onChange={handleChanges}
+            value={values.name}
+            required
+            autoComplete="given-name"
+            disabled={isSubmitting}
+          />
         </div>
-      )}
-
-      {submitted ? (
-        <div className={`${classes.success}`}>
-          <p>Thank You! Your message has been received!</p>
+        <div className={`${classes.form_group}`}>
+          <input
+            type="email"
+            placeholder="you@company.com"
+            name="email"
+            onChange={handleChanges}
+            value={values.email}
+            required
+            autoComplete="off"
+            disabled={isSubmitting}
+          />
         </div>
-      ) : null}
+        <div className={`${classes.form_group}`}>
+          <textarea
+            rows={5}
+            placeholder="Tell us a little about the project..."
+            name="message"
+            onChange={handleChanges}
+            value={values.message}
+            autoComplete="off"
+            required
+            disabled={isSubmitting}
+          />
+        </div>
 
-      <Button
-        text={isSubmitting ? "Submitting..." : "Send"}
-        type={"submit"}
-        variant="secondary"
-        disabled={isSubmitting}
-      />
-    </form>
+        <div className={classes.services_section}>
+          <label className={classes.services_label}>How can we help?</label>
+          <div className={classes.services_grid}>
+            {SERVICES.map((service) => (
+              <label key={service} className={classes.service_checkbox}>
+                <input
+                  type="checkbox"
+                  checked={selectedServices.includes(service)}
+                  onChange={() => handleServiceToggle(service)}
+                  disabled={isSubmitting}
+                />
+                <span className={classes.checkbox_label}>{service}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div className={classes.recaptcha_container}>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+            size="normal"
+          />
+        </div>
+
+        {error && (
+          <div className={`${classes.error}`}>
+            <p>{error}</p>
+          </div>
+        )}
+
+        {submitted ? (
+          <div className={`${classes.success}`}>
+            <p>Thank You! Your message has been received!</p>
+          </div>
+        ) : null}
+
+        <Button
+          text={isSubmitting ? "Submitting..." : "Let's get started!"}
+          type={"submit"}
+          variant="secondary"
+          disabled={isSubmitting}
+        />
+      </form>
+    </div>
   );
 }
 
