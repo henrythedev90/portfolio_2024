@@ -10,7 +10,7 @@ async function checkAuth() {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     await checkAuth();
 
@@ -120,4 +120,3 @@ export async function GET(request: NextRequest) {
     );
   }
 }
-

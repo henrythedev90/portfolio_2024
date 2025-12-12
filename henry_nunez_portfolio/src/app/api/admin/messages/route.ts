@@ -25,7 +25,13 @@ export async function GET(request: NextRequest) {
     const db = await getDb();
     const messagesCollection = db.collection("messages");
 
-    let query: any = {};
+    const query: {
+      isRead?: boolean;
+      isArchived?: boolean;
+      isStarred?: boolean;
+      projectTag?: string;
+      isContacted?: boolean;
+    } = {};
 
     if (filter === "unread") {
       query.isRead = false;
@@ -104,4 +110,3 @@ export async function PATCH(request: NextRequest) {
     );
   }
 }
-

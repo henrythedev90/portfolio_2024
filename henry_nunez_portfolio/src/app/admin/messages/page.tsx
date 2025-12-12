@@ -1,20 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import classes from "./messages.module.css";
-
-interface Message {
-  _id: string;
-  name: string;
-  email: string;
-  message: string;
-  deviceType: string;
-  createdAt: string;
-  isRead: boolean;
-  isArchived: boolean;
-  isStarred: boolean;
-  isContacted: boolean;
-  projectTag: string | null;
-}
+import type { Message } from "../../../types/message";
+import type { Analytics } from "../../../types/analytics";
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -23,7 +11,7 @@ export default function MessagesPage() {
   const [projectTag, setProjectTag] = useState("all");
   const [contactedFilter, setContactedFilter] = useState("all");
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
-  const [analytics, setAnalytics] = useState<any>(null);
+  const [analytics, setAnalytics] = useState<Analytics | null>(null);
 
   useEffect(() => {
     fetchMessages();
@@ -35,7 +23,8 @@ export default function MessagesPage() {
       const params = new URLSearchParams();
       if (filter !== "all") params.append("filter", filter);
       if (projectTag !== "all") params.append("projectTag", projectTag);
-      if (contactedFilter !== "all") params.append("contacted", contactedFilter);
+      if (contactedFilter !== "all")
+        params.append("contacted", contactedFilter);
 
       const response = await fetch(`/api/admin/messages?${params}`);
       const data = await response.json();
@@ -57,7 +46,15 @@ export default function MessagesPage() {
     }
   };
 
-  const updateMessage = async (messageId: string, updates: any) => {
+  const updateMessage = async (
+    messageId: string,
+    updates: Partial<
+      Pick<
+        Message,
+        "isRead" | "isArchived" | "isStarred" | "isContacted" | "projectTag"
+      >
+    >
+  ) => {
     try {
       await fetch("/api/admin/messages", {
         method: "PATCH",
@@ -155,9 +152,7 @@ export default function MessagesPage() {
           <div className={classes.analyticsCard}>
             <h3>Total Messages</h3>
             <p className={classes.statValue}>{analytics.totalMessages}</p>
-            <p className={classes.subStat}>
-              {analytics.unreadCount} unread
-            </p>
+            <p className={classes.subStat}>{analytics.unreadCount} unread</p>
           </div>
         </div>
       )}
@@ -390,4 +385,3 @@ export default function MessagesPage() {
     </div>
   );
 }
-

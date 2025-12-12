@@ -10,7 +10,7 @@ async function checkAuth() {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     await checkAuth();
 
@@ -56,7 +56,9 @@ export async function GET(request: NextRequest) {
     return new NextResponse(csv, {
       headers: {
         "Content-Type": "text/csv",
-        "Content-Disposition": `attachment; filename="messages-${new Date().toISOString().split("T")[0]}.csv"`,
+        "Content-Disposition": `attachment; filename="messages-${
+          new Date().toISOString().split("T")[0]
+        }.csv"`,
       },
     });
   } catch (error) {
@@ -70,4 +72,3 @@ export async function GET(request: NextRequest) {
     );
   }
 }
-

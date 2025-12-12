@@ -27,6 +27,7 @@ export default function AdminLayout({
 
         setIsAuthenticated(data.authenticated);
       } catch (error) {
+        console.error("Authentication check failed:", error);
         if (pathname !== "/admin/login") {
           router.push("/admin/login");
         }
