@@ -114,9 +114,30 @@ export async function POST(request: NextRequest) {
         message: "Message received and saved successfully",
       });
     } catch (dbError) {
-      console.error("Error saving to database:", dbError);
+      // Log detailed error information for debugging
+      const errorMessage =
+        dbError instanceof Error ? dbError.message : "Unknown database error";
+      const errorStack =
+        dbError instanceof Error ? dbError.stack : String(dbError);
+
+      console.error("Error saving to database:", {
+        message: errorMessage,
+        stack: errorStack,
+        name,
+        email,
+        timestamp: new Date().toISOString(),
+      });
+
+      // In production, return a user-friendly error
+      // but log the full error details for debugging
       return NextResponse.json(
-        { error: "Failed to save message. Please try again." },
+        {
+          error: "Failed to save message. Please try again.",
+          message:
+            process.env.NODE_ENV === "development"
+              ? errorMessage
+              : "An error occurred while processing your message.",
+        },
         { status: 500 }
       );
     }
