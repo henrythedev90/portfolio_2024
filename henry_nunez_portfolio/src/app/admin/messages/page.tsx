@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import classes from "./messages.module.css";
 import type { Message } from "../../../types/message";
 import type { Analytics } from "../../../types/analytics";
@@ -13,12 +13,7 @@ export default function MessagesPage() {
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
 
-  useEffect(() => {
-    fetchMessages();
-    fetchAnalytics();
-  }, [filter, projectTag, contactedFilter]);
-
-  const fetchMessages = async () => {
+  const fetchMessages = useCallback(async () => {
     try {
       const params = new URLSearchParams();
       if (filter !== "all") params.append("filter", filter);
@@ -34,9 +29,9 @@ export default function MessagesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filter, projectTag, contactedFilter]);
 
-  const fetchAnalytics = async () => {
+  const fetchAnalytics = useCallback(async () => {
     try {
       const response = await fetch("/api/admin/analytics");
       const data = await response.json();
@@ -44,7 +39,12 @@ export default function MessagesPage() {
     } catch (error) {
       console.error("Error fetching analytics:", error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchMessages();
+    fetchAnalytics();
+  }, [fetchMessages, fetchAnalytics]);
 
   const updateMessage = async (
     messageId: string,
