@@ -1,3 +1,4 @@
+import React from "react";
 import ProjectCard from "./ProjectCard";
 import { PROJECTS } from "@/app/components/data/projects";
 import Container from "@/app/components/Container/Container";
