@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Container from "../../components/Container/Container";
 import classes from "./Skills.module.css";
 import SkillsImage from "../../components/SkillsImage/SkillsImage";
@@ -7,7 +7,6 @@ import { SKILLS, SKILLS_TYPE } from "../../components/data/skillsList";
 import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
 import Button from "../../components/Button/Button";
 import LogoWall from "../../components/LogoWall/LogoWall";
-import Loading from "@/app/components/Loading/Loading";
 
 const Skills = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
