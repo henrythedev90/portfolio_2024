@@ -64,7 +64,6 @@
   margin: 0;
   padding: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,7 +73,6 @@
 
 .project_card_container:hover p {
   max-height: 6em;
-  -webkit-line-clamp: unset;
   overflow: visible;
 }
 
