@@ -6,6 +6,7 @@ import SkillsImage from "../../components/SkillsImage/SkillsImage";
 import { SKILLS, SKILLS_TYPE } from "../../components/data/skillsList";
 import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
 import Button from "../../components/Button/Button";
+import LogoWall from "../../components/LogoWall/LogoWall";
 
 const Skills = () => {
   const [openSkills, setOpenSkills] = useState<string | null>(null);
@@ -23,6 +24,13 @@ const Skills = () => {
   return (
     <section id="skills" className={classes.skills_section}>
       <Container>
+        {/* LogoWall - Scrolling animation of all skills */}
+        {/* <LogoWall duplicates={3}>
+          {SKILLS.map((skill, index) => (
+            <SkillsImage key={index} icon={skill.icon} title={skill.title} />
+          ))}
+        </LogoWall> */}
+
         {/* this is for large tablets, laptops and bigger screen */}
         <div className={classes.skills_container}>
           <div className={classes.skill_row_one}>
@@ -126,7 +134,7 @@ const Skills = () => {
         {/* This is mobile */}
         <div className={classes.skills_list_mobile}>
           <SectionSubtitle subTitle="Skills" />
-          {SKILLS_TYPE.map((skillType) => (
+          {/* {SKILLS_TYPE.map((skillType) => (
             <div
               key={skillType.type}
               className={`skills_${skillType.type
@@ -169,7 +177,12 @@ const Skills = () => {
                 </ul>
               )}
             </div>
-          ))}
+          ))} */}
+          <LogoWall duplicates={3}>
+            {SKILLS.map((skill, index) => (
+              <SkillsImage key={index} icon={skill.icon} title={skill.title} />
+            ))}
+          </LogoWall>
         </div>
       </Container>
     </section>
