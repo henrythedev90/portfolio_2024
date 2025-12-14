@@ -14,17 +14,23 @@
   color: var(--text-primary);
   margin-bottom: 0.75rem;
   line-height: 1.3;
+  text-align: center;
 }
 
 .form_instructions {
-  font-size: 1rem;
-  color: var(--text-secondary);
+  font-size: 1.05rem;
+  color: var(--accent);
   margin-bottom: 0;
+  text-align: center;
 }
 
 /* Form styles */
 .form {
   width: 100%;
+  border: 4px solid var(--shade-dark);
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--shade-soft);
 }
 
 .form_group {

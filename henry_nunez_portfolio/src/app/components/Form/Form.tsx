@@ -154,7 +154,7 @@ function Form() {
         <div className={`${classes.form_group}`}>
           <textarea
             rows={5}
-            placeholder="Tell us a little about the project..."
+            placeholder="Tell me a little about the project..."
             name="message"
             onChange={handleChanges}
             value={values.message}

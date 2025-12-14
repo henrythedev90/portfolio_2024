@@ -4,6 +4,8 @@ import { CONTACT_LIST, CONTACT_INFO } from "../../components/data/linkList";
 import classes from "./Contact.module.css";
 import Link from "next/link";
 import Container from "@/app/components/Container/Container";
+import Image from "next/image";
+import call_me from "../../../../public/images/call_me.jpeg";
 
 const Contact = () => {
   return (
@@ -16,6 +18,15 @@ const Contact = () => {
               <h2>
                 <span>C</span>ontact <span>M</span>e!
               </h2>
+            </div>
+            <div className={classes.contact_info_image}>
+              <Image
+                src={call_me}
+                alt="contact"
+                width={450}
+                height={450}
+                priority={true}
+              />
             </div>
             <ul className={classes.contact_list}>
               {CONTACT_INFO.map((i, index) => (
