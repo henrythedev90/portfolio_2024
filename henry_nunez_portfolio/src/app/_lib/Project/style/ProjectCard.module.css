@@ -64,7 +64,6 @@
   margin: 0;
   padding: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,7 +73,6 @@
 
 .project_card_container:hover p {
   max-height: 6em;
-  -webkit-line-clamp: unset;
   overflow: visible;
 }
 
@@ -127,20 +125,17 @@
   text-align: center;
   margin-bottom: 20px;
   position: relative;
+  overflow: hidden;
 }
 
-.projects_title::before {
-  content: "";
+.letter_glitch_wrapper {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("/images/wireframe.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.48;
+  width: 100%;
+  height: 100%;
   z-index: 0;
 }
 

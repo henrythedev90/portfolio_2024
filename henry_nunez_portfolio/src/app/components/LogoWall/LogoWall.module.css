@@ -1,0 +1,63 @@
+/* LogoWall Container */
+.logo_wall_container {
+  position: relative;
+  overflow-x: hidden;
+  padding: 2rem 0;
+}
+
+/* Gradient Fades */
+.gradient_left,
+.gradient_right {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8rem;
+  z-index: 20;
+}
+
+.gradient_left {
+  left: 0;
+  background: linear-gradient(to right, var(--background), transparent);
+}
+
+.gradient_right {
+  right: 0;
+  background: linear-gradient(to left, var(--background), transparent);
+}
+
+/* Scroll Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll_container {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  animation: scroll 60s linear infinite;
+}
+
+.scroll_container:hover {
+  animation-play-state: paused;
+}
+
+/* Item Wrapper - flexible container for any child component */
+.tech_item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .scroll_container {
+    gap: 5rem;
+    animation-duration: 50s;
+  }
+}

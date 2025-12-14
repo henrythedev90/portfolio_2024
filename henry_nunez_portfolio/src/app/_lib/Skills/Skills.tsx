@@ -6,9 +6,9 @@ import SkillsImage from "../../components/SkillsImage/SkillsImage";
 import { SKILLS, SKILLS_TYPE } from "../../components/data/skillsList";
 import SectionSubtitle from "../../components/SectionSubtitle/SectionSubtitle";
 import Button from "../../components/Button/Button";
+import LogoWall from "../../components/LogoWall/LogoWall";
 
 const Skills = () => {
-  const [openSkills, setOpenSkills] = useState<string | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -20,6 +20,7 @@ const Skills = () => {
       prev - 1 < 0 ? SKILLS_TYPE.length - 1 : prev - 1
     );
   }, []);
+
   return (
     <section id="skills" className={classes.skills_section}>
       <Container>
@@ -126,7 +127,7 @@ const Skills = () => {
         {/* This is mobile */}
         <div className={classes.skills_list_mobile}>
           <SectionSubtitle subTitle="Skills" />
-          {SKILLS_TYPE.map((skillType) => (
+          {/* {SKILLS_TYPE.map((skillType) => (
             <div
               key={skillType.type}
               className={`skills_${skillType.type
@@ -169,7 +170,12 @@ const Skills = () => {
                 </ul>
               )}
             </div>
-          ))}
+          ))} */}
+          <LogoWall duplicates={3}>
+            {SKILLS.map((skill, index) => (
+              <SkillsImage key={index} icon={skill.icon} title={skill.title} />
+            ))}
+          </LogoWall>
         </div>
       </Container>
     </section>
