@@ -3,6 +3,7 @@ export interface Message {
   name: string;
   email: string;
   message: string;
+  services?: string[];
   deviceType: string;
   createdAt: string;
   isRead: boolean;

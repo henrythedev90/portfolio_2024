@@ -414,6 +414,23 @@
   white-space: pre-wrap;
 }
 
+.servicesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.serviceTag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: var(--accent, #0066cc);
+  color: var(--background, #fff);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .detailActions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -573,6 +590,11 @@
 [data-theme="dark"] .messageText {
   background: var(--message-background, #1a1a1a);
   color: var(--text-color, #fff);
+}
+
+[data-theme="dark"] .serviceTag {
+  background: var(--accent, #4dabff);
+  color: var(--background, #fff);
 }
 
 [data-theme="dark"] .actionButton {

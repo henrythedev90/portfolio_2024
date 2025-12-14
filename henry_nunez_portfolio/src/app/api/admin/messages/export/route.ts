@@ -28,6 +28,7 @@ export async function GET() {
       "Name",
       "Email",
       "Message",
+      "Services",
       "Device Type",
       "Read",
       "Archived",
@@ -41,6 +42,9 @@ export async function GET() {
       `"${(msg.name || "").replace(/"/g, '""')}"`,
       msg.email || "",
       `"${(msg.message || "").replace(/"/g, '""')}"`,
+      msg.services && msg.services.length > 0
+        ? `"${msg.services.join("; ").replace(/"/g, '""')}"`
+        : "",
       msg.deviceType || "unknown",
       msg.isRead ? "Yes" : "No",
       msg.isArchived ? "Yes" : "No",

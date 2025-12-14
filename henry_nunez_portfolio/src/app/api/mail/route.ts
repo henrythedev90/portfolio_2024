@@ -23,7 +23,7 @@ function getDeviceType(
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message, recaptchaToken } = body;
+    const { name, email, message, services, recaptchaToken } = body;
 
     // Get request metadata for analytics
     const userAgent = request.headers.get("user-agent");
@@ -96,6 +96,7 @@ export async function POST(request: NextRequest) {
         name,
         email,
         message,
+        services: services || [],
         deviceType,
         userAgent: userAgent || "unknown",
         referer: referer || "unknown",
