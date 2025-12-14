@@ -5,7 +5,7 @@ import classes from "./Contact.module.css";
 import Link from "next/link";
 import Container from "@/app/components/Container/Container";
 import Image from "next/image";
-import call_me from "../../../../public/images/call_me.jpeg";
+import call_me from "../../../../public/images/call_me.jpg";
 
 const Contact = () => {
   return (
@@ -26,6 +26,8 @@ const Contact = () => {
                 width={450}
                 height={450}
                 priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 990px) 300px, 450px"
+                style={{ width: "100%", height: "auto", maxWidth: "450px" }}
               />
             </div>
             <ul className={classes.contact_list}>
